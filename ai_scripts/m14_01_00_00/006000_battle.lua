@@ -1,4 +1,4 @@
-REGISTER_GOAL(GOAL_Knight_of_Sun6000_Battle, "Knight_of_Sun6000Battle")
+REGISTER_GOAL(GOAL_Solaire6000_Battle, "Knight_of_Sun6000Battle")
 local NormalR_min = 0
 local NormalR_max = 2
 local Guard_NormalR_min = 0
@@ -17,7 +17,7 @@ local Backstep_Atk_min = 0
 local Backstep_Atk_max = 2.8
 local Rolling_Atk_min = 4
 local Rolling_Atk_max = 5
-REGISTER_GOAL_NO_UPDATE(GOAL_Knight_of_Sun6000_Battle, 1)
+REGISTER_GOAL_NO_UPDATE(GOAL_Solaire6000_Battle, 1)
 function Knight_of_Sun6000Battle_Activate(ai, goal)
     local actPerArr = {}
     local actFuncArr = {}

@@ -9,7 +9,7 @@ GOAL_COMMON_BackToHome = 4
 GOAL_COMMON_NonBattleAct = 5
 
 -- NPC goals.
-GOAL_Knight_of_Sun6000_Battle = 6000
+GOAL_Solaire6000_Battle = 6000
 GOAL_DarkMoonKnight6010_Battle = 6010
 GOAL_Knight_Ostra6020_Battle = 6020
 GOAL_BigHat_Logarn6030_Battle = 6030
@@ -87,33 +87,7 @@ GOAL_m17_00_VNPC_Majutsu7220_Battle = 7220
 GOAL_m18_00_VNPC_Motazaru7230_Battle = 7230
 GOAL_m18_01_VNPC_Motazaru7240_Battle = 7240
 
-
-GOAL_Test10004_Battle = 10004
-GOAL_DS2Test10005_Battle = 10005
-GOAL_Test10006_Battle = 10006
-GOAL_Test10008_Battle = 10008
-GOAL_HusiHeavy_Spear010009_Battle = 10009
-GOAL_HasigoTest10010_Battle = 10010
-GOAL_GuardTest_010011_Battle = 10011
-GOAL_DS2pot10100_Battle = 10100
-GOAL_Nanimosinai11000_Battle = 11000
-GOAL_NpcPlayerTest_Battle = 12010
-GOAL_PGTest13000_Battle = 13000
-GOAL_PGTest13001_Battle = 13001
-GOAL_PGTest13002_Battle = 13002
-GOAL_PGTest13003_Battle = 13003
-GOAL_PGTest13004_Battle = 13004
-GOAL_PGTest13005_Battle = 13005
-GOAL_PGTest13006_Battle = 13006
-GOAL_PGTest13007_Battle = 13007
-GOAL_PGTest13008_Battle = 13008
-GOAL_PGTest13009_Battle = 13009
-GOAL_DS2PGTest14000_Battle = 14000
-GOAL_DS2PGTest14001_Battle = 14001
-GOAL_DS2AutoTest15000_Battle = 15000
-GOAL_DS2AutoTest15001_Battle = 15001
-GOAL_KANNOKE20000_Battle = 20000
-GOAL_Common_Leave_Target30000_Battle = 30000
+-- Enemy goals.
 GOAL_Inunezumi120000_Battle = 120000
 GOAL_KingInunezumi120001_Battle = 120001
 GOAL_Inunezumi120002_Battle = 120002
