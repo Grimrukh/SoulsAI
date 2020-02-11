@@ -1,4 +1,4 @@
-REGISTER_GOAL(GOAL_Daughter_of_OnionKnight6290_Battle, "Daughter_of_OnionKnight6290Battle")
+REGISTER_GOAL(GOAL_Sieglinde6280_Battle, "Sieglinde6280Battle")
 local NormalR_min = 0
 local NormalR_max = 1.7
 local LargeR_min = 0
@@ -17,8 +17,8 @@ local Rolling_AtkW_min = 4
 local Rolling_AtkW_max = 5
 local PushR_min = 0
 local PushR_max = 1
-REGISTER_GOAL_NO_UPDATE(GOAL_Daughter_of_OnionKnight6290_Battle, 1)
-function Daughter_of_OnionKnight6290Battle_Activate(ai, goal)
+REGISTER_GOAL_NO_UPDATE(GOAL_Sieglinde6280_Battle, 1)
+function Sieglinde6280Battle_Activate(ai, goal)
     local actPerArr = {}
     local actFuncArr = {}
     local defFuncParamTbl = {}
@@ -73,23 +73,23 @@ function Daughter_of_OnionKnight6290Battle_Activate(ai, goal)
         actPerArr[17] = 20 * RYOUTE_odds
         actPerArr[20] = 30 * RYOUTE_odds
     end
-    actFuncArr[1] = REGIST_FUNC(ai, goal, Daughter_of_OnionKnight6290_Act01)
-    actFuncArr[2] = REGIST_FUNC(ai, goal, Daughter_of_OnionKnight6290_Act02)
-    actFuncArr[5] = REGIST_FUNC(ai, goal, Daughter_of_OnionKnight6290_Act05)
-    actFuncArr[7] = REGIST_FUNC(ai, goal, Daughter_of_OnionKnight6290_Act07)
-    actFuncArr[9] = REGIST_FUNC(ai, goal, Daughter_of_OnionKnight6290_Act09)
-    actFuncArr[10] = REGIST_FUNC(ai, goal, Daughter_of_OnionKnight6290_Act10)
-    actFuncArr[13] = REGIST_FUNC(ai, goal, Daughter_of_OnionKnight6290_Act13)
-    actFuncArr[15] = REGIST_FUNC(ai, goal, Daughter_of_OnionKnight6290_Act15)
-    actFuncArr[17] = REGIST_FUNC(ai, goal, Daughter_of_OnionKnight6290_Act17)
-    actFuncArr[20] = REGIST_FUNC(ai, goal, Daughter_of_OnionKnight6290_Act20)
-    local atkAfterFunc = REGIST_FUNC(ai, goal, Daughter_of_OnionKnight6290_ActAfter_AdjustSpace, atkAfterOddsTbl)
+    actFuncArr[1] = REGIST_FUNC(ai, goal, Sieglinde6280_Act01)
+    actFuncArr[2] = REGIST_FUNC(ai, goal, Sieglinde6280_Act02)
+    actFuncArr[5] = REGIST_FUNC(ai, goal, Sieglinde6280_Act05)
+    actFuncArr[7] = REGIST_FUNC(ai, goal, Sieglinde6280_Act07)
+    actFuncArr[9] = REGIST_FUNC(ai, goal, Sieglinde6280_Act09)
+    actFuncArr[10] = REGIST_FUNC(ai, goal, Sieglinde6280_Act10)
+    actFuncArr[13] = REGIST_FUNC(ai, goal, Sieglinde6280_Act13)
+    actFuncArr[15] = REGIST_FUNC(ai, goal, Sieglinde6280_Act15)
+    actFuncArr[17] = REGIST_FUNC(ai, goal, Sieglinde6280_Act17)
+    actFuncArr[20] = REGIST_FUNC(ai, goal, Sieglinde6280_Act20)
+    local atkAfterFunc = REGIST_FUNC(ai, goal, Sieglinde6280_ActAfter_AdjustSpace, atkAfterOddsTbl)
     Common_Battle_Activate(ai, goal, actPerArr, actFuncArr, atkAfterFunc, defFuncParamTbl)
     return 
 end
 
 NormalR_min = NormalR_max
-function Daughter_of_OnionKnight6290_Act01(ai, goal, paramTbl)
+function Sieglinde6280_Act01(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -109,7 +109,7 @@ function Daughter_of_OnionKnight6290_Act01(ai, goal, paramTbl)
 end
 
 NormalR_min = LargeR_max
-function Daughter_of_OnionKnight6290_Act02(ai, goal, paramTbl)
+function Sieglinde6280_Act02(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -124,7 +124,7 @@ function Daughter_of_OnionKnight6290_Act02(ai, goal, paramTbl)
 end
 
 NormalR_min = Backstep_Atk_max
-function Daughter_of_OnionKnight6290_Act05(ai, goal, paramTbl)
+function Sieglinde6280_Act05(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -140,7 +140,7 @@ function Daughter_of_OnionKnight6290_Act05(ai, goal, paramTbl)
 end
 
 NormalR_min = Rolling_Atk_max
-function Daughter_of_OnionKnight6290_Act07(ai, goal, paramTbl)
+function Sieglinde6280_Act07(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -156,7 +156,7 @@ function Daughter_of_OnionKnight6290_Act07(ai, goal, paramTbl)
 end
 
 NormalR_min = Whand_jyaku_max
-function Daughter_of_OnionKnight6290_Act09(ai, goal, paramTbl)
+function Sieglinde6280_Act09(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -176,7 +176,7 @@ function Daughter_of_OnionKnight6290_Act09(ai, goal, paramTbl)
 end
 
 NormalR_min = Whand_kyou_max
-function Daughter_of_OnionKnight6290_Act10(ai, goal, paramTbl)
+function Sieglinde6280_Act10(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -191,7 +191,7 @@ function Daughter_of_OnionKnight6290_Act10(ai, goal, paramTbl)
 end
 
 NormalR_min = Backstep_AtkW_max
-function Daughter_of_OnionKnight6290_Act13(ai, goal, paramTbl)
+function Sieglinde6280_Act13(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -207,7 +207,7 @@ function Daughter_of_OnionKnight6290_Act13(ai, goal, paramTbl)
 end
 
 NormalR_min = Rolling_AtkW_max
-function Daughter_of_OnionKnight6290_Act15(ai, goal, paramTbl)
+function Sieglinde6280_Act15(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -223,7 +223,7 @@ function Daughter_of_OnionKnight6290_Act15(ai, goal, paramTbl)
 end
 
 NormalR_min = PushR_max
-function Daughter_of_OnionKnight6290_Act17(ai, goal, paramTbl)
+function Sieglinde6280_Act17(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = PushR_max
@@ -235,7 +235,7 @@ function Daughter_of_OnionKnight6290_Act17(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Daughter_of_OnionKnight6290_Act20(ai, goal, paramTbl)
+function Sieglinde6280_Act20(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     if 3 <= targetDist then
@@ -249,7 +249,7 @@ function Daughter_of_OnionKnight6290_Act20(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Daughter_of_OnionKnight6290_ActAfter_AdjustSpace(ai, goal, paramTbl)
+function Sieglinde6280_ActAfter_AdjustSpace(ai, goal, paramTbl)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     local MoveDist = 3
@@ -263,16 +263,16 @@ function Daughter_of_OnionKnight6290_ActAfter_AdjustSpace(ai, goal, paramTbl)
     return 
 end
 
-function Daughter_of_OnionKnight6290Battle_Update(ai, goal)
+function Sieglinde6280Battle_Update(ai, goal)
     return GOAL_RESULT_Continue
 end
 
-function Daughter_of_OnionKnight6290Battle_Terminate(ai, goal)
+function Sieglinde6280Battle_Terminate(ai, goal)
     return 
 end
 
 NormalR_min = LargeR_max
-function Daughter_of_OnionKnight6290Battle_Interupt(ai, goal)
+function Sieglinde6280Battle_Interupt(ai, goal)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)

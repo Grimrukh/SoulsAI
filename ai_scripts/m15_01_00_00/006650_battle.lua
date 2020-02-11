@@ -1,4 +1,4 @@
-REGISTER_GOAL(GOAL_DarkMoon_Kei6650_Battle, "DarkMoon_Kei6650Battle")
+REGISTER_GOAL(GOAL_DarkmoonKnightLight6650_Battle, "DarkmoonKnightLight6650Battle")
 local NormalR_min = 0
 local NormalR_max = 2.1
 local LargeR_min = 0
@@ -11,8 +11,8 @@ local Backstep_Atk_min = 0
 local Backstep_Atk_max = 1
 local Rolling_Atk_min = 3.5
 local Rolling_Atk_max = 4.5
-REGISTER_GOAL_NO_UPDATE(GOAL_DarkMoon_Kei6650_Battle, 1)
-function DarkMoon_Kei6650Battle_Activate(ai, goal)
+REGISTER_GOAL_NO_UPDATE(GOAL_DarkmoonKnightLight6650_Battle, 1)
+function DarkmoonKnightLight6650Battle_Activate(ai, goal)
     local actPerArr = {}
     local actFuncArr = {}
     local defFuncParamTbl = {}
@@ -95,21 +95,21 @@ function DarkMoon_Kei6650Battle_Activate(ai, goal)
         actPerArr[7] = 40
         actPerArr[8] = 10
     end
-    actFuncArr[1] = REGIST_FUNC(ai, goal, DarkMoon_Kei6650_Act01)
-    actFuncArr[2] = REGIST_FUNC(ai, goal, DarkMoon_Kei6650_Act02)
-    actFuncArr[3] = REGIST_FUNC(ai, goal, DarkMoon_Kei6650_Act03)
-    actFuncArr[4] = REGIST_FUNC(ai, goal, DarkMoon_Kei6650_Act04)
-    actFuncArr[5] = REGIST_FUNC(ai, goal, DarkMoon_Kei6650_Act05)
-    actFuncArr[6] = REGIST_FUNC(ai, goal, DarkMoon_Kei6650_Act06)
-    actFuncArr[7] = REGIST_FUNC(ai, goal, DarkMoon_Kei6650_Act07)
-    actFuncArr[8] = REGIST_FUNC(ai, goal, DarkMoon_Kei6650_Act08)
-    local atkAfterFunc = REGIST_FUNC(ai, goal, DarkMoon_Kei6650_ActAfter_AdjustSpace, atkAfterOddsTbl)
+    actFuncArr[1] = REGIST_FUNC(ai, goal, DarkmoonKnightLight6650_Act01)
+    actFuncArr[2] = REGIST_FUNC(ai, goal, DarkmoonKnightLight6650_Act02)
+    actFuncArr[3] = REGIST_FUNC(ai, goal, DarkmoonKnightLight6650_Act03)
+    actFuncArr[4] = REGIST_FUNC(ai, goal, DarkmoonKnightLight6650_Act04)
+    actFuncArr[5] = REGIST_FUNC(ai, goal, DarkmoonKnightLight6650_Act05)
+    actFuncArr[6] = REGIST_FUNC(ai, goal, DarkmoonKnightLight6650_Act06)
+    actFuncArr[7] = REGIST_FUNC(ai, goal, DarkmoonKnightLight6650_Act07)
+    actFuncArr[8] = REGIST_FUNC(ai, goal, DarkmoonKnightLight6650_Act08)
+    local atkAfterFunc = REGIST_FUNC(ai, goal, DarkmoonKnightLight6650_ActAfter_AdjustSpace, atkAfterOddsTbl)
     Common_Battle_Activate(ai, goal, actPerArr, actFuncArr, atkAfterFunc, defFuncParamTbl)
     return 
 end
 
 NormalR_min = NormalR_max
-function DarkMoon_Kei6650_Act01(ai, goal, paramTbl)
+function DarkmoonKnightLight6650_Act01(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = NormalR_max
@@ -134,7 +134,7 @@ function DarkMoon_Kei6650_Act01(ai, goal, paramTbl)
 end
 
 NormalR_min = LargeR_max
-function DarkMoon_Kei6650_Act02(ai, goal, paramTbl)
+function DarkmoonKnightLight6650_Act02(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     goal:AddSubGoal(GOAL_COMMON_ApproachTarget, 10, TARGET_ENE_0, LargeR_max, TARGET_SELF, false, -1)
@@ -144,7 +144,7 @@ function DarkMoon_Kei6650_Act02(ai, goal, paramTbl)
 end
 
 NormalR_min = LargeR_max
-function DarkMoon_Kei6650_Act03(ai, goal, paramTbl)
+function DarkmoonKnightLight6650_Act03(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = LargeR_max
@@ -164,7 +164,7 @@ function DarkMoon_Kei6650_Act03(ai, goal, paramTbl)
 end
 
 NormalR_min = PushR_max
-function DarkMoon_Kei6650_Act04(ai, goal, paramTbl)
+function DarkmoonKnightLight6650_Act04(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = PushR_max
@@ -178,7 +178,7 @@ function DarkMoon_Kei6650_Act04(ai, goal, paramTbl)
 end
 
 NormalR_min = NormalR_max
-function DarkMoon_Kei6650_Act05(ai, goal, paramTbl)
+function DarkmoonKnightLight6650_Act05(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = NormalR_max
@@ -193,7 +193,7 @@ function DarkMoon_Kei6650_Act05(ai, goal, paramTbl)
 end
 
 NormalR_min = Rolling_Atk_max
-function DarkMoon_Kei6650_Act06(ai, goal, paramTbl)
+function DarkmoonKnightLight6650_Act06(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = Rolling_Atk_max
@@ -207,7 +207,7 @@ function DarkMoon_Kei6650_Act06(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function DarkMoon_Kei6650_Act07(ai, goal, paramTbl)
+function DarkmoonKnightLight6650_Act07(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UsePrimaryLeftHand(ai, goal)
@@ -222,7 +222,7 @@ function DarkMoon_Kei6650_Act07(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function DarkMoon_Kei6650_Act08(ai, goal, paramTbl)
+function DarkmoonKnightLight6650_Act08(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     goal:AddSubGoal(GOAL_COMMON_SpinStep, 10, NPC_ATK_StepB, TARGET_ENE_0, 0, AI_DIR_TYPE_B, 2)
@@ -231,7 +231,7 @@ function DarkMoon_Kei6650_Act08(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function DarkMoon_Kei6650_ActAfter_AdjustSpace(ai, goal, paramTbl)
+function DarkmoonKnightLight6650_ActAfter_AdjustSpace(ai, goal, paramTbl)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     local MoveDist = 3
@@ -248,15 +248,15 @@ function DarkMoon_Kei6650_ActAfter_AdjustSpace(ai, goal, paramTbl)
     return 
 end
 
-function DarkMoon_Kei6650Battle_Update(ai, goal)
+function DarkmoonKnightLight6650Battle_Update(ai, goal)
     return GOAL_RESULT_Continue
 end
 
-function DarkMoon_Kei6650Battle_Terminate(ai, goal)
+function DarkmoonKnightLight6650Battle_Terminate(ai, goal)
     return 
 end
 
-function DarkMoon_Kei6650Battle_Interupt(ai, goal)
+function DarkmoonKnightLight6650Battle_Interupt(ai, goal)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)

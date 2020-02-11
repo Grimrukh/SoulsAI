@@ -1,4 +1,4 @@
-REGISTER_GOAL(GOAL_Healer6180_Battle, "Healer6180Battle")
+REGISTER_GOAL(GOAL_Ingward6180_Battle, "Ingward6180Battle")
 local PushR_min = 0
 local PushR_max = 1
 local NormalR2_min = 0
@@ -13,8 +13,8 @@ local Magic2_min = 7
 local Magic2_max = 7
 local Magic3_min = 8
 local Magic3_max = 8
-REGISTER_GOAL_NO_UPDATE(GOAL_Healer6180_Battle, 1)
-function Healer6180Battle_Activate(ai, goal)
+REGISTER_GOAL_NO_UPDATE(GOAL_Ingward6180_Battle, 1)
+function Ingward6180Battle_Activate(ai, goal)
     local actPerArr = {}
     local actFuncArr = {}
     local defFuncParamTbl = {}
@@ -69,19 +69,19 @@ function Healer6180Battle_Activate(ai, goal)
         actPerArr[19] = 5 * MagicValue2
         actPerArr[20] = 10000 * MagicValue3 * Kaifuku
     end
-    actFuncArr[1] = REGIST_FUNC(ai, goal, Healer6180_Act01)
-    actFuncArr[2] = REGIST_FUNC(ai, goal, Healer6180_Act02)
-    actFuncArr[17] = REGIST_FUNC(ai, goal, Healer6180_Act17)
-    actFuncArr[18] = REGIST_FUNC(ai, goal, Healer6180_Act18)
-    actFuncArr[19] = REGIST_FUNC(ai, goal, Healer6180_Act19)
-    actFuncArr[20] = REGIST_FUNC(ai, goal, Healer6180_Act20)
-    local atkAfterFunc = REGIST_FUNC(ai, goal, Healer6180_ActAfter_AdjustSpace, atkAfterOddsTbl)
+    actFuncArr[1] = REGIST_FUNC(ai, goal, Ingward6180_Act01)
+    actFuncArr[2] = REGIST_FUNC(ai, goal, Ingward6180_Act02)
+    actFuncArr[17] = REGIST_FUNC(ai, goal, Ingward6180_Act17)
+    actFuncArr[18] = REGIST_FUNC(ai, goal, Ingward6180_Act18)
+    actFuncArr[19] = REGIST_FUNC(ai, goal, Ingward6180_Act19)
+    actFuncArr[20] = REGIST_FUNC(ai, goal, Ingward6180_Act20)
+    local atkAfterFunc = REGIST_FUNC(ai, goal, Ingward6180_ActAfter_AdjustSpace, atkAfterOddsTbl)
     Common_Battle_Activate(ai, goal, actPerArr, actFuncArr, atkAfterFunc, defFuncParamTbl)
     return 
 end
 
 PushR_min = NormalR2_max
-function Healer6180_Act01(ai, goal, paramTbl)
+function Ingward6180_Act01(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = NormalR2_max
@@ -99,7 +99,7 @@ function Healer6180_Act01(ai, goal, paramTbl)
 end
 
 PushR_min = LargeR2_max
-function Healer6180_Act02(ai, goal, paramTbl)
+function Ingward6180_Act02(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = LargeR2_max
@@ -116,7 +116,7 @@ function Healer6180_Act02(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Healer6180_Act17(ai, goal, paramTbl)
+function Ingward6180_Act17(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     if 7 <= targetDist then
@@ -132,7 +132,7 @@ end
 
 PushR_min = Magic_max
 PushR_min = Magic_min
-function Healer6180_Act18(ai, goal, paramTbl)
+function Ingward6180_Act18(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -153,7 +153,7 @@ end
 
 PushR_min = Magic2_max
 PushR_min = Magic2_min
-function Healer6180_Act19(ai, goal, paramTbl)
+function Ingward6180_Act19(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -174,7 +174,7 @@ end
 
 PushR_min = Magic3_max
 PushR_min = Magic3_min
-function Healer6180_Act20(ai, goal, paramTbl)
+function Ingward6180_Act20(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -193,7 +193,7 @@ function Healer6180_Act20(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Healer6180_ActAfter_AdjustSpace(ai, goal, paramTbl)
+function Ingward6180_ActAfter_AdjustSpace(ai, goal, paramTbl)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     if fate <= 80 then
@@ -207,15 +207,15 @@ function Healer6180_ActAfter_AdjustSpace(ai, goal, paramTbl)
     return 
 end
 
-function Healer6180Battle_Update(ai, goal)
+function Ingward6180Battle_Update(ai, goal)
     return GOAL_RESULT_Continue
 end
 
-function Healer6180Battle_Terminate(ai, goal)
+function Ingward6180Battle_Terminate(ai, goal)
     return 
 end
 
-function Healer6180Battle_Interupt(ai, goal)
+function Ingward6180Battle_Interupt(ai, goal)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)

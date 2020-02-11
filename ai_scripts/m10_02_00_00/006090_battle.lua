@@ -1,4 +1,4 @@
-REGISTER_GOAL(GOAL_Knight_of_HolyWomanB6090_Battle, "Knight_of_HolyWomanB6090Battle")
+REGISTER_GOAL(GOAL_Vince6090_Battle, "Vince6090Battle")
 local NormalR_min = 0
 local NormalR_max = 1.8
 local LargeR_min = 0
@@ -9,8 +9,8 @@ local PushR_min = 0
 local PushR_max = 1
 local Magic2_min = 0
 local Magic2_max = 1.7
-REGISTER_GOAL_NO_UPDATE(GOAL_Knight_of_HolyWomanB6090_Battle, 1)
-function Knight_of_HolyWomanB6090Battle_Activate(ai, goal)
+REGISTER_GOAL_NO_UPDATE(GOAL_Vince6090_Battle, 1)
+function Vince6090Battle_Activate(ai, goal)
     local actPerArr = {}
     local actFuncArr = {}
     local defFuncParamTbl = {}
@@ -55,19 +55,19 @@ function Knight_of_HolyWomanB6090Battle_Activate(ai, goal)
         actPerArr[19] = 20 * MagicValue2
         actPerArr[20] = 15
     end
-    actFuncArr[1] = REGIST_FUNC(ai, goal, Knight_of_HolyWomanB6090_Act01)
-    actFuncArr[2] = REGIST_FUNC(ai, goal, Knight_of_HolyWomanB6090_Act02)
-    actFuncArr[5] = REGIST_FUNC(ai, goal, Knight_of_HolyWomanB6090_Act05)
-    actFuncArr[17] = REGIST_FUNC(ai, goal, Knight_of_HolyWomanB6090_Act17)
-    actFuncArr[19] = REGIST_FUNC(ai, goal, Knight_of_HolyWomanB6090_Act19)
-    actFuncArr[20] = REGIST_FUNC(ai, goal, Knight_of_HolyWomanB6090_Act20)
-    local atkAfterFunc = REGIST_FUNC(ai, goal, Knight_of_HolyWomanB6090_ActAfter_AdjustSpace, atkAfterOddsTbl)
+    actFuncArr[1] = REGIST_FUNC(ai, goal, Vince6090_Act01)
+    actFuncArr[2] = REGIST_FUNC(ai, goal, Vince6090_Act02)
+    actFuncArr[5] = REGIST_FUNC(ai, goal, Vince6090_Act05)
+    actFuncArr[17] = REGIST_FUNC(ai, goal, Vince6090_Act17)
+    actFuncArr[19] = REGIST_FUNC(ai, goal, Vince6090_Act19)
+    actFuncArr[20] = REGIST_FUNC(ai, goal, Vince6090_Act20)
+    local atkAfterFunc = REGIST_FUNC(ai, goal, Vince6090_ActAfter_AdjustSpace, atkAfterOddsTbl)
     Common_Battle_Activate(ai, goal, actPerArr, actFuncArr, atkAfterFunc, defFuncParamTbl)
     return 
 end
 
 NormalR_min = NormalR_max
-function Knight_of_HolyWomanB6090_Act01(ai, goal, paramTbl)
+function Vince6090_Act01(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -93,7 +93,7 @@ function Knight_of_HolyWomanB6090_Act01(ai, goal, paramTbl)
 end
 
 NormalR_min = LargeR_max
-function Knight_of_HolyWomanB6090_Act02(ai, goal, paramTbl)
+function Vince6090_Act02(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -115,7 +115,7 @@ function Knight_of_HolyWomanB6090_Act02(ai, goal, paramTbl)
 end
 
 NormalR_min = Backstep_Atk_max
-function Knight_of_HolyWomanB6090_Act05(ai, goal, paramTbl)
+function Vince6090_Act05(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -131,7 +131,7 @@ function Knight_of_HolyWomanB6090_Act05(ai, goal, paramTbl)
 end
 
 NormalR_min = PushR_max
-function Knight_of_HolyWomanB6090_Act17(ai, goal, paramTbl)
+function Vince6090_Act17(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = PushR_max
@@ -144,7 +144,7 @@ function Knight_of_HolyWomanB6090_Act17(ai, goal, paramTbl)
 end
 
 NormalR_min = Magic2_max
-function Knight_of_HolyWomanB6090_Act19(ai, goal, paramTbl)
+function Vince6090_Act19(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -161,7 +161,7 @@ function Knight_of_HolyWomanB6090_Act19(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Knight_of_HolyWomanB6090_Act20(ai, goal, paramTbl)
+function Vince6090_Act20(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     if 3 <= targetDist then
@@ -175,7 +175,7 @@ function Knight_of_HolyWomanB6090_Act20(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Knight_of_HolyWomanB6090_ActAfter_AdjustSpace(ai, goal, paramTbl)
+function Vince6090_ActAfter_AdjustSpace(ai, goal, paramTbl)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     local MoveDist = 3
@@ -200,16 +200,16 @@ function Knight_of_HolyWomanB6090_ActAfter_AdjustSpace(ai, goal, paramTbl)
     return 
 end
 
-function Knight_of_HolyWomanB6090Battle_Update(ai, goal)
+function Vince6090Battle_Update(ai, goal)
     return GOAL_RESULT_Continue
 end
 
-function Knight_of_HolyWomanB6090Battle_Terminate(ai, goal)
+function Vince6090Battle_Terminate(ai, goal)
     return 
 end
 
 NormalR_min = LargeR_max
-function Knight_of_HolyWomanB6090Battle_Interupt(ai, goal)
+function Vince6090Battle_Interupt(ai, goal)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)

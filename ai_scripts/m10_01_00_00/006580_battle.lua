@@ -1,4 +1,4 @@
-REGISTER_GOAL(GOAL_Habel6580_Battle, "Habel6580Battle")
+REGISTER_GOAL(GOAL_Havel6580_Battle, "Havel6580Battle")
 local NormalR_min = 0
 local NormalR_max = 3.3
 local LargeR_min = 0
@@ -17,8 +17,8 @@ local Rolling_AtkW_min = 4
 local Rolling_AtkW_max = 5
 local PushR_min = 0
 local PushR_max = 1
-REGISTER_GOAL_NO_UPDATE(GOAL_Habel6580_Battle, 1)
-function Habel6580Battle_Activate(ai, goal)
+REGISTER_GOAL_NO_UPDATE(GOAL_Havel6580_Battle, 1)
+function Havel6580Battle_Activate(ai, goal)
     local actPerArr = {}
     local actFuncArr = {}
     local defFuncParamTbl = {}
@@ -60,22 +60,22 @@ function Habel6580Battle_Activate(ai, goal)
     else
         actPerArr[6] = 100
     end
-    actFuncArr[1] = REGIST_FUNC(ai, goal, Habel6580_Act01)
-    actFuncArr[2] = REGIST_FUNC(ai, goal, Habel6580_Act02)
-    actFuncArr[5] = REGIST_FUNC(ai, goal, Habel6580_Act05)
-    actFuncArr[6] = REGIST_FUNC(ai, goal, Habel6580_Act06)
-    actFuncArr[9] = REGIST_FUNC(ai, goal, Habel6580_Act09)
-    actFuncArr[10] = REGIST_FUNC(ai, goal, Habel6580_Act10)
-    actFuncArr[13] = REGIST_FUNC(ai, goal, Habel6580_Act13)
-    actFuncArr[17] = REGIST_FUNC(ai, goal, Habel6580_Act17)
-    actFuncArr[20] = REGIST_FUNC(ai, goal, Habel6580_Act20)
-    local atkAfterFunc = REGIST_FUNC(ai, goal, Habel6580_ActAfter_AdjustSpace, atkAfterOddsTbl)
+    actFuncArr[1] = REGIST_FUNC(ai, goal, Havel6580_Act01)
+    actFuncArr[2] = REGIST_FUNC(ai, goal, Havel6580_Act02)
+    actFuncArr[5] = REGIST_FUNC(ai, goal, Havel6580_Act05)
+    actFuncArr[6] = REGIST_FUNC(ai, goal, Havel6580_Act06)
+    actFuncArr[9] = REGIST_FUNC(ai, goal, Havel6580_Act09)
+    actFuncArr[10] = REGIST_FUNC(ai, goal, Havel6580_Act10)
+    actFuncArr[13] = REGIST_FUNC(ai, goal, Havel6580_Act13)
+    actFuncArr[17] = REGIST_FUNC(ai, goal, Havel6580_Act17)
+    actFuncArr[20] = REGIST_FUNC(ai, goal, Havel6580_Act20)
+    local atkAfterFunc = REGIST_FUNC(ai, goal, Havel6580_ActAfter_AdjustSpace, atkAfterOddsTbl)
     Common_Battle_Activate(ai, goal, actPerArr, actFuncArr, atkAfterFunc, defFuncParamTbl)
     return 
 end
 
 NormalR_min = NormalR_max
-function Habel6580_Act01(ai, goal, paramTbl)
+function Havel6580_Act01(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -90,7 +90,7 @@ function Habel6580_Act01(ai, goal, paramTbl)
 end
 
 NormalR_min = LargeR_max
-function Habel6580_Act02(ai, goal, paramTbl)
+function Havel6580_Act02(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -105,7 +105,7 @@ function Habel6580_Act02(ai, goal, paramTbl)
 end
 
 NormalR_min = Backstep_Atk_max
-function Habel6580_Act05(ai, goal, paramTbl)
+function Havel6580_Act05(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -120,7 +120,7 @@ function Habel6580_Act05(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Habel6580_Act06(ai, goal, paramTbl)
+function Havel6580_Act06(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     goal:AddSubGoal(GOAL_COMMON_ApproachTarget, 1, POINT_INITIAL, 0.1, TARGET_ENE_0, false, -1)
@@ -129,7 +129,7 @@ function Habel6580_Act06(ai, goal, paramTbl)
 end
 
 NormalR_min = Whand_jyaku_max
-function Habel6580_Act09(ai, goal, paramTbl)
+function Havel6580_Act09(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -144,7 +144,7 @@ function Habel6580_Act09(ai, goal, paramTbl)
 end
 
 NormalR_min = Whand_kyou_max
-function Habel6580_Act10(ai, goal, paramTbl)
+function Havel6580_Act10(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -159,7 +159,7 @@ function Habel6580_Act10(ai, goal, paramTbl)
 end
 
 NormalR_min = Backstep_AtkW_max
-function Habel6580_Act13(ai, goal, paramTbl)
+function Havel6580_Act13(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -175,7 +175,7 @@ function Habel6580_Act13(ai, goal, paramTbl)
 end
 
 NormalR_min = PushR_max
-function Habel6580_Act17(ai, goal, paramTbl)
+function Havel6580_Act17(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = PushR_max
@@ -187,7 +187,7 @@ function Habel6580_Act17(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Habel6580_Act20(ai, goal, paramTbl)
+function Havel6580_Act20(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     if 3 <= targetDist then
@@ -201,7 +201,7 @@ function Habel6580_Act20(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Habel6580_ActAfter_AdjustSpace(ai, goal, paramTbl)
+function Havel6580_ActAfter_AdjustSpace(ai, goal, paramTbl)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     local MoveDist = 3
@@ -215,16 +215,16 @@ function Habel6580_ActAfter_AdjustSpace(ai, goal, paramTbl)
     return 
 end
 
-function Habel6580Battle_Update(ai, goal)
+function Havel6580Battle_Update(ai, goal)
     return GOAL_RESULT_Continue
 end
 
-function Habel6580Battle_Terminate(ai, goal)
+function Havel6580Battle_Terminate(ai, goal)
     return 
 end
 
 NormalR_min = LargeR_max
-function Habel6580Battle_Interupt(ai, goal)
+function Havel6580Battle_Interupt(ai, goal)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)

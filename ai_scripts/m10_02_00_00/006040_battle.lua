@@ -1,4 +1,4 @@
-REGISTER_GOAL(GOAL_Pupil_of_Logarn6040_Battle, "Pupil_of_Logarn6040Battle")
+REGISTER_GOAL(GOAL_Griggs6040_Battle, "Griggs6040Battle")
 local PushR_min = 0
 local PushR_max = 0.8
 local NormalR2_min = 0
@@ -13,8 +13,8 @@ local Magic_min = 5
 local Magic_max = 15
 local Magic2_min = 5
 local Magic2_max = 15
-REGISTER_GOAL_NO_UPDATE(GOAL_Pupil_of_Logarn6040_Battle, 1)
-function Pupil_of_Logarn6040Battle_Activate(ai, goal)
+REGISTER_GOAL_NO_UPDATE(GOAL_Griggs6040_Battle, 1)
+function Griggs6040Battle_Activate(ai, goal)
     local actPerArr = {}
     local actFuncArr = {}
     local defFuncParamTbl = {}
@@ -83,20 +83,20 @@ function Pupil_of_Logarn6040Battle_Activate(ai, goal)
         actPerArr[19] = 10 * MagicValue2
         actPerArr[20] = 15 * GuardTaiou
     end
-    actFuncArr[3] = REGIST_FUNC(ai, goal, Pupil_of_Logarn6040_Act03)
-    actFuncArr[4] = REGIST_FUNC(ai, goal, Pupil_of_Logarn6040_Act04)
-    actFuncArr[6] = REGIST_FUNC(ai, goal, Pupil_of_Logarn6040_Act06)
-    actFuncArr[17] = REGIST_FUNC(ai, goal, Pupil_of_Logarn6040_Act17)
-    actFuncArr[18] = REGIST_FUNC(ai, goal, Pupil_of_Logarn6040_Act18)
-    actFuncArr[19] = REGIST_FUNC(ai, goal, Pupil_of_Logarn6040_Act19)
-    actFuncArr[20] = REGIST_FUNC(ai, goal, Pupil_of_Logarn6040_Act20)
-    local atkAfterFunc = REGIST_FUNC(ai, goal, Pupil_of_Logarn6040_ActAfter_AdjustSpace, atkAfterOddsTbl)
+    actFuncArr[3] = REGIST_FUNC(ai, goal, Griggs6040_Act03)
+    actFuncArr[4] = REGIST_FUNC(ai, goal, Griggs6040_Act04)
+    actFuncArr[6] = REGIST_FUNC(ai, goal, Griggs6040_Act06)
+    actFuncArr[17] = REGIST_FUNC(ai, goal, Griggs6040_Act17)
+    actFuncArr[18] = REGIST_FUNC(ai, goal, Griggs6040_Act18)
+    actFuncArr[19] = REGIST_FUNC(ai, goal, Griggs6040_Act19)
+    actFuncArr[20] = REGIST_FUNC(ai, goal, Griggs6040_Act20)
+    local atkAfterFunc = REGIST_FUNC(ai, goal, Griggs6040_ActAfter_AdjustSpace, atkAfterOddsTbl)
     Common_Battle_Activate(ai, goal, actPerArr, actFuncArr, atkAfterFunc, defFuncParamTbl)
     return 
 end
 
 PushR_min = NormalR2_max
-function Pupil_of_Logarn6040_Act03(ai, goal, paramTbl)
+function Griggs6040_Act03(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -122,7 +122,7 @@ function Pupil_of_Logarn6040_Act03(ai, goal, paramTbl)
 end
 
 PushR_min = LargeR2_max
-function Pupil_of_Logarn6040_Act04(ai, goal, paramTbl)
+function Griggs6040_Act04(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -144,7 +144,7 @@ function Pupil_of_Logarn6040_Act04(ai, goal, paramTbl)
 end
 
 PushR_min = Backstep_Atk2_max
-function Pupil_of_Logarn6040_Act06(ai, goal, paramTbl)
+function Griggs6040_Act06(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -160,7 +160,7 @@ function Pupil_of_Logarn6040_Act06(ai, goal, paramTbl)
 end
 
 PushR_min = PushR_max
-function Pupil_of_Logarn6040_Act17(ai, goal, paramTbl)
+function Griggs6040_Act17(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = PushR_max
@@ -174,7 +174,7 @@ end
 
 PushR_min = Magic_max
 PushR_min = Magic_min
-function Pupil_of_Logarn6040_Act18(ai, goal, paramTbl)
+function Griggs6040_Act18(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -196,7 +196,7 @@ PushR_min = Magic_max
 PushR_min = Magic2_max
 PushR_min = Magic_min
 PushR_min = Magic2_min
-function Pupil_of_Logarn6040_Act19(ai, goal, paramTbl)
+function Griggs6040_Act19(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -214,7 +214,7 @@ function Pupil_of_Logarn6040_Act19(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Pupil_of_Logarn6040_Act20(ai, goal, paramTbl)
+function Griggs6040_Act20(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     if 3 <= targetDist then
@@ -228,7 +228,7 @@ function Pupil_of_Logarn6040_Act20(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Pupil_of_Logarn6040_ActAfter_AdjustSpace(ai, goal, paramTbl)
+function Griggs6040_ActAfter_AdjustSpace(ai, goal, paramTbl)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     local MoveDist = 3
@@ -253,15 +253,15 @@ function Pupil_of_Logarn6040_ActAfter_AdjustSpace(ai, goal, paramTbl)
     return 
 end
 
-function Pupil_of_Logarn6040Battle_Update(ai, goal)
+function Griggs6040Battle_Update(ai, goal)
     return GOAL_RESULT_Continue
 end
 
-function Pupil_of_Logarn6040Battle_Terminate(ai, goal)
+function Griggs6040Battle_Terminate(ai, goal)
     return 
 end
 
-function Pupil_of_Logarn6040Battle_Interupt(ai, goal)
+function Griggs6040Battle_Interupt(ai, goal)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)

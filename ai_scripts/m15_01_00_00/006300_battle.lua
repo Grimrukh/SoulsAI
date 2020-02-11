@@ -1,4 +1,4 @@
-REGISTER_GOAL(GOAL_HeldKnight_laughtrec6300_Battle, "HeldKnight_laughtrec6300Battle")
+REGISTER_GOAL(GOAL_Lautrec6300_Battle, "Lautrec6300Battle")
 local NormalR_min = 0
 local NormalR_max = 1.2
 local LargeR_min = 0
@@ -15,8 +15,8 @@ local Backstep_Atk_min = 0
 local Backstep_Atk_max = 1
 local Rolling_Atk_min = 3
 local Rolling_Atk_max = 4
-REGISTER_GOAL_NO_UPDATE(GOAL_HeldKnight_laughtrec6300_Battle, 1)
-function HeldKnight_laughtrec6300Battle_Activate(ai, goal)
+REGISTER_GOAL_NO_UPDATE(GOAL_Lautrec6300_Battle, 1)
+function Lautrec6300Battle_Activate(ai, goal)
     local actPerArr = {}
     local actFuncArr = {}
     local defFuncParamTbl = {}
@@ -74,19 +74,19 @@ function HeldKnight_laughtrec6300Battle_Activate(ai, goal)
         actPerArr[5] = 20
         actPerArr[7] = 50
     end
-    actFuncArr[1] = REGIST_FUNC(ai, goal, HeldKnight_laughtrec6300_Act01)
-    actFuncArr[3] = REGIST_FUNC(ai, goal, HeldKnight_laughtrec6300_Act03)
-    actFuncArr[4] = REGIST_FUNC(ai, goal, HeldKnight_laughtrec6300_Act04)
-    actFuncArr[5] = REGIST_FUNC(ai, goal, HeldKnight_laughtrec6300_Act05)
-    actFuncArr[6] = REGIST_FUNC(ai, goal, HeldKnight_laughtrec6300_Act06)
-    actFuncArr[7] = REGIST_FUNC(ai, goal, HeldKnight_laughtrec6300_Act07)
-    local atkAfterFunc = REGIST_FUNC(ai, goal, HeldKnight_laughtrec6300_ActAfter_AdjustSpace, atkAfterOddsTbl)
+    actFuncArr[1] = REGIST_FUNC(ai, goal, Lautrec6300_Act01)
+    actFuncArr[3] = REGIST_FUNC(ai, goal, Lautrec6300_Act03)
+    actFuncArr[4] = REGIST_FUNC(ai, goal, Lautrec6300_Act04)
+    actFuncArr[5] = REGIST_FUNC(ai, goal, Lautrec6300_Act05)
+    actFuncArr[6] = REGIST_FUNC(ai, goal, Lautrec6300_Act06)
+    actFuncArr[7] = REGIST_FUNC(ai, goal, Lautrec6300_Act07)
+    local atkAfterFunc = REGIST_FUNC(ai, goal, Lautrec6300_ActAfter_AdjustSpace, atkAfterOddsTbl)
     Common_Battle_Activate(ai, goal, actPerArr, actFuncArr, atkAfterFunc, defFuncParamTbl)
     return 
 end
 
 NormalR_min = NormalR_max
-function HeldKnight_laughtrec6300_Act01(ai, goal, paramTbl)
+function Lautrec6300_Act01(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = NormalR_max
@@ -111,7 +111,7 @@ function HeldKnight_laughtrec6300_Act01(ai, goal, paramTbl)
 end
 
 NormalR_min = LargeR_max
-function HeldKnight_laughtrec6300_Act03(ai, goal, paramTbl)
+function Lautrec6300_Act03(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = LargeR_max
@@ -131,7 +131,7 @@ function HeldKnight_laughtrec6300_Act03(ai, goal, paramTbl)
 end
 
 NormalR_min = PushR_max
-function HeldKnight_laughtrec6300_Act04(ai, goal, paramTbl)
+function Lautrec6300_Act04(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = PushR_max
@@ -145,7 +145,7 @@ function HeldKnight_laughtrec6300_Act04(ai, goal, paramTbl)
 end
 
 NormalR_min = NormalR_max
-function HeldKnight_laughtrec6300_Act05(ai, goal, paramTbl)
+function Lautrec6300_Act05(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = NormalR_max
@@ -160,7 +160,7 @@ function HeldKnight_laughtrec6300_Act05(ai, goal, paramTbl)
 end
 
 NormalR_min = Rolling_Atk_max
-function HeldKnight_laughtrec6300_Act06(ai, goal, paramTbl)
+function Lautrec6300_Act06(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = Rolling_Atk_max
@@ -174,7 +174,7 @@ function HeldKnight_laughtrec6300_Act06(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function HeldKnight_laughtrec6300_Act07(ai, goal, paramTbl)
+function Lautrec6300_Act07(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UsePrimaryRightHand(ai, goal)
@@ -189,7 +189,7 @@ function HeldKnight_laughtrec6300_Act07(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function HeldKnight_laughtrec6300_ActAfter_AdjustSpace(ai, goal, paramTbl)
+function Lautrec6300_ActAfter_AdjustSpace(ai, goal, paramTbl)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     local MoveDist = 3
@@ -215,15 +215,15 @@ function HeldKnight_laughtrec6300_ActAfter_AdjustSpace(ai, goal, paramTbl)
     return 
 end
 
-function HeldKnight_laughtrec6300Battle_Update(ai, goal)
+function Lautrec6300Battle_Update(ai, goal)
     return GOAL_RESULT_Continue
 end
 
-function HeldKnight_laughtrec6300Battle_Terminate(ai, goal)
+function Lautrec6300Battle_Terminate(ai, goal)
     return 
 end
 
-function HeldKnight_laughtrec6300Battle_Interupt(ai, goal)
+function Lautrec6300Battle_Interupt(ai, goal)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)

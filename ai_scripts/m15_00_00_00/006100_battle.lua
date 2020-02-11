@@ -1,4 +1,4 @@
-REGISTER_GOAL(GOAL_Knight_of_HolyWomanC6100_Battle, "Knight_of_HolyWomanC6100Battle")
+REGISTER_GOAL(GOAL_Nico6100_Battle, "Nico6100Battle")
 local NormalR_min = 0
 local NormalR_max = 2.6
 local LargeR_min = 0
@@ -17,8 +17,8 @@ local Magic_min = 8
 local Magic_max = 8
 local Magic2_min = 0
 local Magic2_max = 1.7
-REGISTER_GOAL_NO_UPDATE(GOAL_Knight_of_HolyWomanC6100_Battle, 1)
-function Knight_of_HolyWomanC6100Battle_Activate(ai, goal)
+REGISTER_GOAL_NO_UPDATE(GOAL_Nico6100_Battle, 1)
+function Nico6100Battle_Activate(ai, goal)
     local actPerArr = {}
     local actFuncArr = {}
     local defFuncParamTbl = {}
@@ -70,21 +70,21 @@ function Knight_of_HolyWomanC6100Battle_Activate(ai, goal)
         actPerArr[18] = 10000 * MagicValue1 * Kaifuku
         actPerArr[20] = 40
     end
-    actFuncArr[1] = REGIST_FUNC(ai, goal, Knight_of_HolyWomanC6100_Act01)
-    actFuncArr[2] = REGIST_FUNC(ai, goal, Knight_of_HolyWomanC6100_Act02)
-    actFuncArr[9] = REGIST_FUNC(ai, goal, Knight_of_HolyWomanC6100_Act09)
-    actFuncArr[10] = REGIST_FUNC(ai, goal, Knight_of_HolyWomanC6100_Act10)
-    actFuncArr[11] = REGIST_FUNC(ai, goal, Knight_of_HolyWomanC6100_Act11)
-    actFuncArr[17] = REGIST_FUNC(ai, goal, Knight_of_HolyWomanC6100_Act17)
-    actFuncArr[18] = REGIST_FUNC(ai, goal, Knight_of_HolyWomanC6100_Act18)
-    actFuncArr[20] = REGIST_FUNC(ai, goal, Knight_of_HolyWomanC6100_Act20)
-    local atkAfterFunc = REGIST_FUNC(ai, goal, Knight_of_HolyWomanC6100_ActAfter_AdjustSpace, atkAfterOddsTbl)
+    actFuncArr[1] = REGIST_FUNC(ai, goal, Nico6100_Act01)
+    actFuncArr[2] = REGIST_FUNC(ai, goal, Nico6100_Act02)
+    actFuncArr[9] = REGIST_FUNC(ai, goal, Nico6100_Act09)
+    actFuncArr[10] = REGIST_FUNC(ai, goal, Nico6100_Act10)
+    actFuncArr[11] = REGIST_FUNC(ai, goal, Nico6100_Act11)
+    actFuncArr[17] = REGIST_FUNC(ai, goal, Nico6100_Act17)
+    actFuncArr[18] = REGIST_FUNC(ai, goal, Nico6100_Act18)
+    actFuncArr[20] = REGIST_FUNC(ai, goal, Nico6100_Act20)
+    local atkAfterFunc = REGIST_FUNC(ai, goal, Nico6100_ActAfter_AdjustSpace, atkAfterOddsTbl)
     Common_Battle_Activate(ai, goal, actPerArr, actFuncArr, atkAfterFunc, defFuncParamTbl)
     return 
 end
 
 NormalR_min = NormalR_max
-function Knight_of_HolyWomanC6100_Act01(ai, goal, paramTbl)
+function Nico6100_Act01(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -110,7 +110,7 @@ function Knight_of_HolyWomanC6100_Act01(ai, goal, paramTbl)
 end
 
 NormalR_min = LargeR_max
-function Knight_of_HolyWomanC6100_Act02(ai, goal, paramTbl)
+function Nico6100_Act02(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -132,7 +132,7 @@ function Knight_of_HolyWomanC6100_Act02(ai, goal, paramTbl)
 end
 
 NormalR_min = Whand_jyaku_max
-function Knight_of_HolyWomanC6100_Act09(ai, goal, paramTbl)
+function Nico6100_Act09(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -158,7 +158,7 @@ function Knight_of_HolyWomanC6100_Act09(ai, goal, paramTbl)
 end
 
 NormalR_min = Whand_kyou_max
-function Knight_of_HolyWomanC6100_Act10(ai, goal, paramTbl)
+function Nico6100_Act10(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -180,7 +180,7 @@ function Knight_of_HolyWomanC6100_Act10(ai, goal, paramTbl)
 end
 
 NormalR_min = PushR_max
-function Knight_of_HolyWomanC6100_Act17(ai, goal, paramTbl)
+function Nico6100_Act17(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = PushR_max
@@ -194,7 +194,7 @@ end
 
 NormalR_min = Magic_max
 NormalR_min = Magic_min
-function Knight_of_HolyWomanC6100_Act18(ai, goal, paramTbl)
+function Nico6100_Act18(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -213,7 +213,7 @@ function Knight_of_HolyWomanC6100_Act18(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Knight_of_HolyWomanC6100_Act20(ai, goal, paramTbl)
+function Nico6100_Act20(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     if 3 <= targetDist then
@@ -227,7 +227,7 @@ function Knight_of_HolyWomanC6100_Act20(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Knight_of_HolyWomanC6100_ActAfter_AdjustSpace(ai, goal, paramTbl)
+function Nico6100_ActAfter_AdjustSpace(ai, goal, paramTbl)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     if fate <= 80 then
@@ -241,16 +241,16 @@ function Knight_of_HolyWomanC6100_ActAfter_AdjustSpace(ai, goal, paramTbl)
     return 
 end
 
-function Knight_of_HolyWomanC6100Battle_Update(ai, goal)
+function Nico6100Battle_Update(ai, goal)
     return GOAL_RESULT_Continue
 end
 
-function Knight_of_HolyWomanC6100Battle_Terminate(ai, goal)
+function Nico6100Battle_Terminate(ai, goal)
     return 
 end
 
 NormalR_min = LargeR_max
-function Knight_of_HolyWomanC6100Battle_Interupt(ai, goal)
+function Nico6100Battle_Interupt(ai, goal)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)

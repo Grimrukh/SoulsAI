@@ -1,4 +1,4 @@
-REGISTER_GOAL(GOAL_Attendant_of_laughtrecB6500_Battle, "Attendant_of_laughtrecB6500Battle")
+REGISTER_GOAL(GOAL_LautrecsMage6500_Battle, "LautrecsMage6500Battle")
 local PushR_min = 0
 local PushR_max = 1
 local NormalR2_min = 0
@@ -15,8 +15,8 @@ local Magic2_min = 7
 local Magic2_max = 7
 local Magic3_min = 8
 local Magic3_max = 8
-REGISTER_GOAL_NO_UPDATE(GOAL_Attendant_of_laughtrecB6500_Battle, 1)
-function Attendant_of_laughtrecB6500Battle_Activate(ai, goal)
+REGISTER_GOAL_NO_UPDATE(GOAL_LautrecsMage6500_Battle, 1)
+function LautrecsMage6500Battle_Activate(ai, goal)
     local actPerArr = {}
     local actFuncArr = {}
     local defFuncParamTbl = {}
@@ -73,19 +73,19 @@ function Attendant_of_laughtrecB6500Battle_Activate(ai, goal)
         actPerArr[19] = 35 * MagicValue2
         actPerArr[20] = 10000 * MagicValue3 * Kaifuku
     end
-    actFuncArr[3] = REGIST_FUNC(ai, goal, Attendant_of_laughtrecB6500_Act03)
-    actFuncArr[4] = REGIST_FUNC(ai, goal, Attendant_of_laughtrecB6500_Act04)
-    actFuncArr[17] = REGIST_FUNC(ai, goal, Attendant_of_laughtrecB6500_Act17)
-    actFuncArr[18] = REGIST_FUNC(ai, goal, Attendant_of_laughtrecB6500_Act18)
-    actFuncArr[19] = REGIST_FUNC(ai, goal, Attendant_of_laughtrecB6500_Act19)
-    actFuncArr[20] = REGIST_FUNC(ai, goal, Attendant_of_laughtrecB6500_Act20)
-    local atkAfterFunc = REGIST_FUNC(ai, goal, Attendant_of_laughtrecB6500_ActAfter_AdjustSpace, atkAfterOddsTbl)
+    actFuncArr[3] = REGIST_FUNC(ai, goal, LautrecsMage6500_Act03)
+    actFuncArr[4] = REGIST_FUNC(ai, goal, LautrecsMage6500_Act04)
+    actFuncArr[17] = REGIST_FUNC(ai, goal, LautrecsMage6500_Act17)
+    actFuncArr[18] = REGIST_FUNC(ai, goal, LautrecsMage6500_Act18)
+    actFuncArr[19] = REGIST_FUNC(ai, goal, LautrecsMage6500_Act19)
+    actFuncArr[20] = REGIST_FUNC(ai, goal, LautrecsMage6500_Act20)
+    local atkAfterFunc = REGIST_FUNC(ai, goal, LautrecsMage6500_ActAfter_AdjustSpace, atkAfterOddsTbl)
     Common_Battle_Activate(ai, goal, actPerArr, actFuncArr, atkAfterFunc, defFuncParamTbl)
     return 
 end
 
 PushR_min = NormalR2_max
-function Attendant_of_laughtrecB6500_Act03(ai, goal, paramTbl)
+function LautrecsMage6500_Act03(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -111,7 +111,7 @@ function Attendant_of_laughtrecB6500_Act03(ai, goal, paramTbl)
 end
 
 PushR_min = LargeR2_max
-function Attendant_of_laughtrecB6500_Act04(ai, goal, paramTbl)
+function LautrecsMage6500_Act04(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -133,7 +133,7 @@ function Attendant_of_laughtrecB6500_Act04(ai, goal, paramTbl)
 end
 
 PushR_min = PushR_max
-function Attendant_of_laughtrecB6500_Act17(ai, goal, paramTbl)
+function LautrecsMage6500_Act17(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = PushR_max
@@ -147,7 +147,7 @@ end
 
 PushR_min = Magic_max
 PushR_min = Magic_min
-function Attendant_of_laughtrecB6500_Act18(ai, goal, paramTbl)
+function LautrecsMage6500_Act18(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -169,7 +169,7 @@ PushR_min = Magic_max
 PushR_min = Magic2_max
 PushR_min = Magic_min
 PushR_min = Magic2_min
-function Attendant_of_laughtrecB6500_Act19(ai, goal, paramTbl)
+function LautrecsMage6500_Act19(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -189,7 +189,7 @@ end
 
 PushR_min = Magic3_max
 PushR_min = Magic3_min
-function Attendant_of_laughtrecB6500_Act20(ai, goal, paramTbl)
+function LautrecsMage6500_Act20(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -208,7 +208,7 @@ function Attendant_of_laughtrecB6500_Act20(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Attendant_of_laughtrecB6500_ActAfter_AdjustSpace(ai, goal, paramTbl)
+function LautrecsMage6500_ActAfter_AdjustSpace(ai, goal, paramTbl)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     local MoveDist = 3
@@ -222,15 +222,15 @@ function Attendant_of_laughtrecB6500_ActAfter_AdjustSpace(ai, goal, paramTbl)
     return 
 end
 
-function Attendant_of_laughtrecB6500Battle_Update(ai, goal)
+function LautrecsMage6500Battle_Update(ai, goal)
     return GOAL_RESULT_Continue
 end
 
-function Attendant_of_laughtrecB6500Battle_Terminate(ai, goal)
+function LautrecsMage6500Battle_Terminate(ai, goal)
     return 
 end
 
-function Attendant_of_laughtrecB6500Battle_Interupt(ai, goal)
+function LautrecsMage6500Battle_Interupt(ai, goal)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)

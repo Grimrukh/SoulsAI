@@ -1,4 +1,4 @@
-REGISTER_GOAL(GOAL_White_HolyWoman6070_Battle, "White_HolyWoman6070Battle")
+REGISTER_GOAL(GOAL_Rhea6070_Battle, "Rhea6070Battle")
 local NormalR_min = 0
 local NormalR_max = 1.3
 local LargeR_min = 0
@@ -17,8 +17,8 @@ local Rolling_Atk_min = 4
 local Rolling_Atk_max = 5.6
 local Magic_min = 8
 local Magic_max = 8
-REGISTER_GOAL_NO_UPDATE(GOAL_White_HolyWoman6070_Battle, 1)
-function White_HolyWoman6070Battle_Activate(ai, goal)
+REGISTER_GOAL_NO_UPDATE(GOAL_Rhea6070_Battle, 1)
+function Rhea6070Battle_Activate(ai, goal)
     local actPerArr = {}
     local actFuncArr = {}
     local defFuncParamTbl = {}
@@ -40,23 +40,23 @@ function White_HolyWoman6070Battle_Activate(ai, goal)
     actPerArr[2] = 95
     actPerArr[3] = 3
     actPerArr[4] = 1000 * MagicValue1 * Kaifuku
-    actFuncArr[1] = REGIST_FUNC(ai, goal, White_HolyWoman6070_Act01)
-    actFuncArr[2] = REGIST_FUNC(ai, goal, White_HolyWoman6070_Act02)
-    actFuncArr[3] = REGIST_FUNC(ai, goal, White_HolyWoman6070_Act03)
-    actFuncArr[4] = REGIST_FUNC(ai, goal, White_HolyWoman6070_Act04)
-    actFuncArr[5] = REGIST_FUNC(ai, goal, White_HolyWoman6070_Act05)
-    actFuncArr[6] = REGIST_FUNC(ai, goal, White_HolyWoman6070_Act06)
-    actFuncArr[7] = REGIST_FUNC(ai, goal, White_HolyWoman6070_Act07)
-    actFuncArr[8] = REGIST_FUNC(ai, goal, White_HolyWoman6070_Act08)
-    actFuncArr[9] = REGIST_FUNC(ai, goal, White_HolyWoman6070_Act09)
-    actFuncArr[10] = REGIST_FUNC(ai, goal, White_HolyWoman6070_Act10)
-    local atkAfterFunc = REGIST_FUNC(ai, goal, White_HolyWoman6070_ActAfter_AdjustSpace, atkAfterOddsTbl)
+    actFuncArr[1] = REGIST_FUNC(ai, goal, Rhea6070_Act01)
+    actFuncArr[2] = REGIST_FUNC(ai, goal, Rhea6070_Act02)
+    actFuncArr[3] = REGIST_FUNC(ai, goal, Rhea6070_Act03)
+    actFuncArr[4] = REGIST_FUNC(ai, goal, Rhea6070_Act04)
+    actFuncArr[5] = REGIST_FUNC(ai, goal, Rhea6070_Act05)
+    actFuncArr[6] = REGIST_FUNC(ai, goal, Rhea6070_Act06)
+    actFuncArr[7] = REGIST_FUNC(ai, goal, Rhea6070_Act07)
+    actFuncArr[8] = REGIST_FUNC(ai, goal, Rhea6070_Act08)
+    actFuncArr[9] = REGIST_FUNC(ai, goal, Rhea6070_Act09)
+    actFuncArr[10] = REGIST_FUNC(ai, goal, Rhea6070_Act10)
+    local atkAfterFunc = REGIST_FUNC(ai, goal, Rhea6070_ActAfter_AdjustSpace, atkAfterOddsTbl)
     Common_Battle_Activate(ai, goal, actPerArr, actFuncArr, atkAfterFunc, defFuncParamTbl)
     return 
 end
 
 NormalR_min = NormalR_max
-function White_HolyWoman6070_Act01(ai, goal, paramTbl)
+function Rhea6070_Act01(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryRightHand(ai, goal)
@@ -81,7 +81,7 @@ function White_HolyWoman6070_Act01(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function White_HolyWoman6070_Act02(ai, goal, paramTbl)
+function Rhea6070_Act02(ai, goal, paramTbl)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     local targetDist = ai:GetDist(TARGET_ENE_0)
@@ -100,7 +100,7 @@ function White_HolyWoman6070_Act02(ai, goal, paramTbl)
 end
 
 NormalR_min = LargeR_max
-function White_HolyWoman6070_Act03(ai, goal, paramTbl)
+function Rhea6070_Act03(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryRightHand(ai, goal)
@@ -125,7 +125,7 @@ end
 
 NormalR_min = Magic_max
 NormalR_min = Magic_min
-function White_HolyWoman6070_Act04(ai, goal, paramTbl)
+function Rhea6070_Act04(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -144,7 +144,7 @@ function White_HolyWoman6070_Act04(ai, goal, paramTbl)
 end
 
 NormalR_min = Tate_max
-function White_HolyWoman6070_Act05(ai, goal, paramTbl)
+function Rhea6070_Act05(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -155,7 +155,7 @@ function White_HolyWoman6070_Act05(ai, goal, paramTbl)
 end
 
 NormalR_min = NormalR_max
-function White_HolyWoman6070_Act06(ai, goal, paramTbl)
+function Rhea6070_Act06(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -173,7 +173,7 @@ function White_HolyWoman6070_Act06(ai, goal, paramTbl)
 end
 
 NormalR_min = Rolling_Atk_max
-function White_HolyWoman6070_Act07(ai, goal, paramTbl)
+function Rhea6070_Act07(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -190,7 +190,7 @@ function White_HolyWoman6070_Act07(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function White_HolyWoman6070_Act08(ai, goal, paramTbl)
+function Rhea6070_Act08(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     if 3 <= targetDist then
@@ -203,7 +203,7 @@ function White_HolyWoman6070_Act08(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function White_HolyWoman6070_Act09(ai, goal, paramTbl)
+function Rhea6070_Act09(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     goal:AddSubGoal(GOAL_COMMON_SpinStep, 10, NPC_ATK_StepB, TARGET_ENE_0, 0, AI_DIR_TYPE_B, 2)
@@ -211,7 +211,7 @@ function White_HolyWoman6070_Act09(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function White_HolyWoman6070_Act10(ai, goal, paramTbl)
+function Rhea6070_Act10(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     goal:AddSubGoal(GOAL_COMMON_ComboAttackTunableSpin, 10, NPC_ATK_SwitchWep, TARGET_ENE_0, DIST_Middle, 1.5, 90)
@@ -219,7 +219,7 @@ function White_HolyWoman6070_Act10(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function White_HolyWoman6070_ActAfter_AdjustSpace(ai, goal, paramTbl)
+function Rhea6070_ActAfter_AdjustSpace(ai, goal, paramTbl)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     local MoveDist = 3
@@ -233,15 +233,15 @@ function White_HolyWoman6070_ActAfter_AdjustSpace(ai, goal, paramTbl)
     return 
 end
 
-function White_HolyWoman6070Battle_Update(ai, goal)
+function Rhea6070Battle_Update(ai, goal)
     return GOAL_RESULT_Continue
 end
 
-function White_HolyWoman6070Battle_Terminate(ai, goal)
+function Rhea6070Battle_Terminate(ai, goal)
     return 
 end
 
-function White_HolyWoman6070Battle_Interupt(ai, goal)
+function Rhea6070Battle_Interupt(ai, goal)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local MoveDist_f = 15

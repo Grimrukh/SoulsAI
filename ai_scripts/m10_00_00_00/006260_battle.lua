@@ -1,4 +1,4 @@
-REGISTER_GOAL(GOAL_TrickStar6260_Battle, "TrickStar6260Battle")
+REGISTER_GOAL(GOAL_Domnhall6260_Battle, "Domnhall6260Battle")
 local NormalR_min = 0
 local NormalR_max = 1.5
 local NormalR2_min = 0
@@ -35,8 +35,8 @@ local Rolling_AtkW_min = 4
 local Rolling_AtkW_max = 5
 local Rolling_AtkW2_min = 5
 local Rolling_AtkW2_max = 6
-REGISTER_GOAL_NO_UPDATE(GOAL_TrickStar6260_Battle, 1)
-function TrickStar6260Battle_Activate(ai, goal)
+REGISTER_GOAL_NO_UPDATE(GOAL_Domnhall6260_Battle, 1)
+function Domnhall6260Battle_Activate(ai, goal)
     local actPerArr = {}
     local actFuncArr = {}
     local defFuncParamTbl = {}
@@ -122,27 +122,27 @@ function TrickStar6260Battle_Activate(ai, goal)
         actPerArr[17] = 20 * RYOUTE_odds
         actPerArr[18] = 10 * KATATE_odds
     end
-    actFuncArr[1] = REGIST_FUNC(ai, goal, TrickStar6260_Act01)
-    actFuncArr[2] = REGIST_FUNC(ai, goal, TrickStar6260_Act02)
-    actFuncArr[3] = REGIST_FUNC(ai, goal, TrickStar6260_Act03)
-    actFuncArr[4] = REGIST_FUNC(ai, goal, TrickStar6260_Act04)
-    actFuncArr[5] = REGIST_FUNC(ai, goal, TrickStar6260_Act05)
-    actFuncArr[6] = REGIST_FUNC(ai, goal, TrickStar6260_Act06)
-    actFuncArr[9] = REGIST_FUNC(ai, goal, TrickStar6260_Act09)
-    actFuncArr[10] = REGIST_FUNC(ai, goal, TrickStar6260_Act10)
-    actFuncArr[11] = REGIST_FUNC(ai, goal, TrickStar6260_Act11)
-    actFuncArr[12] = REGIST_FUNC(ai, goal, TrickStar6260_Act12)
-    actFuncArr[13] = REGIST_FUNC(ai, goal, TrickStar6260_Act13)
-    actFuncArr[14] = REGIST_FUNC(ai, goal, TrickStar6260_Act14)
-    actFuncArr[17] = REGIST_FUNC(ai, goal, TrickStar6260_Act17)
-    actFuncArr[18] = REGIST_FUNC(ai, goal, TrickStar6260_Act18)
-    local atkAfterFunc = REGIST_FUNC(ai, goal, TrickStar6260_ActAfter_AdjustSpace, atkAfterOddsTbl)
+    actFuncArr[1] = REGIST_FUNC(ai, goal, Domnhall6260_Act01)
+    actFuncArr[2] = REGIST_FUNC(ai, goal, Domnhall6260_Act02)
+    actFuncArr[3] = REGIST_FUNC(ai, goal, Domnhall6260_Act03)
+    actFuncArr[4] = REGIST_FUNC(ai, goal, Domnhall6260_Act04)
+    actFuncArr[5] = REGIST_FUNC(ai, goal, Domnhall6260_Act05)
+    actFuncArr[6] = REGIST_FUNC(ai, goal, Domnhall6260_Act06)
+    actFuncArr[9] = REGIST_FUNC(ai, goal, Domnhall6260_Act09)
+    actFuncArr[10] = REGIST_FUNC(ai, goal, Domnhall6260_Act10)
+    actFuncArr[11] = REGIST_FUNC(ai, goal, Domnhall6260_Act11)
+    actFuncArr[12] = REGIST_FUNC(ai, goal, Domnhall6260_Act12)
+    actFuncArr[13] = REGIST_FUNC(ai, goal, Domnhall6260_Act13)
+    actFuncArr[14] = REGIST_FUNC(ai, goal, Domnhall6260_Act14)
+    actFuncArr[17] = REGIST_FUNC(ai, goal, Domnhall6260_Act17)
+    actFuncArr[18] = REGIST_FUNC(ai, goal, Domnhall6260_Act18)
+    local atkAfterFunc = REGIST_FUNC(ai, goal, Domnhall6260_ActAfter_AdjustSpace, atkAfterOddsTbl)
     Common_Battle_Activate(ai, goal, actPerArr, actFuncArr, atkAfterFunc, defFuncParamTbl)
     return 
 end
 
 NormalR_min = NormalR_max
-function TrickStar6260_Act01(ai, goal, paramTbl)
+function Domnhall6260_Act01(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -168,7 +168,7 @@ function TrickStar6260_Act01(ai, goal, paramTbl)
 end
 
 NormalR_min = LargeR_max
-function TrickStar6260_Act02(ai, goal, paramTbl)
+function Domnhall6260_Act02(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -190,7 +190,7 @@ function TrickStar6260_Act02(ai, goal, paramTbl)
 end
 
 NormalR_min = NormalR2_max
-function TrickStar6260_Act03(ai, goal, paramTbl)
+function Domnhall6260_Act03(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -216,7 +216,7 @@ function TrickStar6260_Act03(ai, goal, paramTbl)
 end
 
 NormalR_min = LargeR2_max
-function TrickStar6260_Act04(ai, goal, paramTbl)
+function Domnhall6260_Act04(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -238,7 +238,7 @@ function TrickStar6260_Act04(ai, goal, paramTbl)
 end
 
 NormalR_min = Backstep_Atk_max
-function TrickStar6260_Act05(ai, goal, paramTbl)
+function Domnhall6260_Act05(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -254,7 +254,7 @@ function TrickStar6260_Act05(ai, goal, paramTbl)
 end
 
 NormalR_min = Backstep_Atk2_max
-function TrickStar6260_Act06(ai, goal, paramTbl)
+function Domnhall6260_Act06(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -270,7 +270,7 @@ function TrickStar6260_Act06(ai, goal, paramTbl)
 end
 
 NormalR_min = Whand_jyaku_max
-function TrickStar6260_Act09(ai, goal, paramTbl)
+function Domnhall6260_Act09(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -296,7 +296,7 @@ function TrickStar6260_Act09(ai, goal, paramTbl)
 end
 
 NormalR_min = Whand_kyou_max
-function TrickStar6260_Act10(ai, goal, paramTbl)
+function Domnhall6260_Act10(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -318,7 +318,7 @@ function TrickStar6260_Act10(ai, goal, paramTbl)
 end
 
 NormalR_min = Whand_jyaku2_max
-function TrickStar6260_Act11(ai, goal, paramTbl)
+function Domnhall6260_Act11(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryRightHand(ai, goal)
@@ -344,7 +344,7 @@ function TrickStar6260_Act11(ai, goal, paramTbl)
 end
 
 NormalR_min = Whand_kyou2_max
-function TrickStar6260_Act12(ai, goal, paramTbl)
+function Domnhall6260_Act12(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryRightHand(ai, goal)
@@ -366,7 +366,7 @@ function TrickStar6260_Act12(ai, goal, paramTbl)
 end
 
 NormalR_min = Backstep_AtkW_max
-function TrickStar6260_Act13(ai, goal, paramTbl)
+function Domnhall6260_Act13(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -382,7 +382,7 @@ function TrickStar6260_Act13(ai, goal, paramTbl)
 end
 
 NormalR_min = Backstep_AtkW2_max
-function TrickStar6260_Act14(ai, goal, paramTbl)
+function Domnhall6260_Act14(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryRightHand(ai, goal)
@@ -398,7 +398,7 @@ function TrickStar6260_Act14(ai, goal, paramTbl)
 end
 
 NormalR_min = PushR_max
-function TrickStar6260_Act17(ai, goal, paramTbl)
+function Domnhall6260_Act17(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = PushR_max
@@ -410,7 +410,7 @@ function TrickStar6260_Act17(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function TrickStar6260_Act18(ai, goal, paramTbl)
+function Domnhall6260_Act18(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     goal:AddSubGoal(GOAL_COMMON_SpinStep, 10, NPC_ATK_StepB, TARGET_ENE_0, 0, AI_DIR_TYPE_B, 2)
@@ -418,7 +418,7 @@ function TrickStar6260_Act18(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function TrickStar6260_ActAfter_AdjustSpace(ai, goal, paramTbl)
+function Domnhall6260_ActAfter_AdjustSpace(ai, goal, paramTbl)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     local MoveDist = 3
@@ -443,16 +443,16 @@ function TrickStar6260_ActAfter_AdjustSpace(ai, goal, paramTbl)
     return 
 end
 
-function TrickStar6260Battle_Update(ai, goal)
+function Domnhall6260Battle_Update(ai, goal)
     return GOAL_RESULT_Continue
 end
 
-function TrickStar6260Battle_Terminate(ai, goal)
+function Domnhall6260Battle_Terminate(ai, goal)
     return 
 end
 
 NormalR_min = LargeR_max
-function TrickStar6260Battle_Interupt(ai, goal)
+function Domnhall6260Battle_Interupt(ai, goal)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)

@@ -1,4 +1,4 @@
-REGISTER_GOAL(GOAL_BigHat_Logarn6030_Battle, "BigHat_Logarn6030Battle")
+REGISTER_GOAL(GOAL_BigHatLogan6030_Battle, "BigHatLogan6030Battle")
 local NormalR2_min = 0
 local NormalR2_max = 1.3
 local Backstep_Atk2_min = 0
@@ -15,8 +15,8 @@ local Magic4_min = 9
 local Magic4_max = 12
 local Magic5_min = 9
 local Magic5_max = 12
-REGISTER_GOAL_NO_UPDATE(GOAL_BigHat_Logarn6030_Battle, 1)
-function BigHat_Logarn6030Battle_Activate(ai, goal)
+REGISTER_GOAL_NO_UPDATE(GOAL_BigHatLogan6030_Battle, 1)
+function BigHatLogan6030Battle_Activate(ai, goal)
     local actPerArr = {}
     local actFuncArr = {}
     local defFuncParamTbl = {}
@@ -96,22 +96,22 @@ function BigHat_Logarn6030Battle_Activate(ai, goal)
         actPerArr[13] = 23
         actPerArr[20] = 15
     end
-    actFuncArr[1] = REGIST_FUNC(ai, goal, BigHat_Logarn6030_Act01)
-    actFuncArr[3] = REGIST_FUNC(ai, goal, BigHat_Logarn6030_Act03)
-    actFuncArr[6] = REGIST_FUNC(ai, goal, BigHat_Logarn6030_Act06)
-    actFuncArr[8] = REGIST_FUNC(ai, goal, BigHat_Logarn6030_Act06)
-    actFuncArr[10] = REGIST_FUNC(ai, goal, BigHat_Logarn6030_Act10)
-    actFuncArr[11] = REGIST_FUNC(ai, goal, BigHat_Logarn6030_Act11)
-    actFuncArr[12] = REGIST_FUNC(ai, goal, BigHat_Logarn6030_Act12)
-    actFuncArr[13] = REGIST_FUNC(ai, goal, BigHat_Logarn6030_Act13)
-    actFuncArr[14] = REGIST_FUNC(ai, goal, BigHat_Logarn6030_Act14)
-    actFuncArr[20] = REGIST_FUNC(ai, goal, BigHat_Logarn6030_Act20)
-    local atkAfterFunc = REGIST_FUNC(ai, goal, BigHat_Logarn6030_ActAfter_AdjustSpace, atkAfterOddsTbl)
+    actFuncArr[1] = REGIST_FUNC(ai, goal, BigHatLogan6030_Act01)
+    actFuncArr[3] = REGIST_FUNC(ai, goal, BigHatLogan6030_Act03)
+    actFuncArr[6] = REGIST_FUNC(ai, goal, BigHatLogan6030_Act06)
+    actFuncArr[8] = REGIST_FUNC(ai, goal, BigHatLogan6030_Act06)
+    actFuncArr[10] = REGIST_FUNC(ai, goal, BigHatLogan6030_Act10)
+    actFuncArr[11] = REGIST_FUNC(ai, goal, BigHatLogan6030_Act11)
+    actFuncArr[12] = REGIST_FUNC(ai, goal, BigHatLogan6030_Act12)
+    actFuncArr[13] = REGIST_FUNC(ai, goal, BigHatLogan6030_Act13)
+    actFuncArr[14] = REGIST_FUNC(ai, goal, BigHatLogan6030_Act14)
+    actFuncArr[20] = REGIST_FUNC(ai, goal, BigHatLogan6030_Act20)
+    local atkAfterFunc = REGIST_FUNC(ai, goal, BigHatLogan6030_ActAfter_AdjustSpace, atkAfterOddsTbl)
     Common_Battle_Activate(ai, goal, actPerArr, actFuncArr, atkAfterFunc, defFuncParamTbl)
     return 
 end
 
-function BigHat_Logarn6030_Act01(ai, goal, paramTbl)
+function BigHatLogan6030_Act01(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     goal:AddSubGoal(GOAL_COMMON_ApproachTarget, 1, TARGET_ENE_0, 0.8, TARGET_SELF, false, 4)
@@ -120,7 +120,7 @@ function BigHat_Logarn6030_Act01(ai, goal, paramTbl)
 end
 
 NormalR2_min = NormalR2_max
-function BigHat_Logarn6030_Act03(ai, goal, paramTbl)
+function BigHatLogan6030_Act03(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryRightHand(ai, goal)
@@ -141,7 +141,7 @@ function BigHat_Logarn6030_Act03(ai, goal, paramTbl)
 end
 
 NormalR2_min = Backstep_Atk2_max
-function BigHat_Logarn6030_Act06(ai, goal, paramTbl)
+function BigHatLogan6030_Act06(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryRightHand(ai, goal)
@@ -155,7 +155,7 @@ function BigHat_Logarn6030_Act06(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function BigHat_Logarn6030_Act08(ai, goal, paramTbl)
+function BigHatLogan6030_Act08(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryRightHand(ai, goal)
@@ -171,7 +171,7 @@ end
 
 NormalR2_min = Magic_max
 NormalR2_min = Magic_min
-function BigHat_Logarn6030_Act10(ai, goal, paramTbl)
+function BigHatLogan6030_Act10(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -195,7 +195,7 @@ end
 
 NormalR2_min = Magic2_max
 NormalR2_min = Magic2_min
-function BigHat_Logarn6030_Act11(ai, goal, paramTbl)
+function BigHatLogan6030_Act11(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -219,7 +219,7 @@ end
 
 NormalR2_min = Magic3_max
 NormalR2_min = Magic3_min
-function BigHat_Logarn6030_Act12(ai, goal, paramTbl)
+function BigHatLogan6030_Act12(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -241,7 +241,7 @@ end
 
 NormalR2_min = Magic4_max
 NormalR2_min = Magic4_min
-function BigHat_Logarn6030_Act13(ai, goal, paramTbl)
+function BigHatLogan6030_Act13(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -264,7 +264,7 @@ end
 
 NormalR2_min = Magic5_max
 NormalR2_min = Magic5_min
-function BigHat_Logarn6030_Act14(ai, goal, paramTbl)
+function BigHatLogan6030_Act14(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -286,7 +286,7 @@ function BigHat_Logarn6030_Act14(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function BigHat_Logarn6030_Act20(ai, goal, paramTbl)
+function BigHatLogan6030_Act20(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     if 7 <= targetDist then
@@ -300,7 +300,7 @@ function BigHat_Logarn6030_Act20(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function BigHat_Logarn6030_ActAfter_AdjustSpace(ai, goal, paramTbl)
+function BigHatLogan6030_ActAfter_AdjustSpace(ai, goal, paramTbl)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     local MoveDist = 3
@@ -315,15 +315,15 @@ function BigHat_Logarn6030_ActAfter_AdjustSpace(ai, goal, paramTbl)
     return 
 end
 
-function BigHat_Logarn6030Battle_Update(ai, goal)
+function BigHatLogan6030Battle_Update(ai, goal)
     return GOAL_RESULT_Continue
 end
 
-function BigHat_Logarn6030Battle_Terminate(ai, goal)
+function BigHatLogan6030Battle_Terminate(ai, goal)
     return 
 end
 
-function BigHat_Logarn6030Battle_Interupt(ai, goal)
+function BigHatLogan6030Battle_Interupt(ai, goal)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)

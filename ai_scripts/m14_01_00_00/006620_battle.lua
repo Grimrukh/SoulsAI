@@ -1,4 +1,4 @@
-REGISTER_GOAL(GOAL_Sister_of_Kuragu6620_Battle, "Sister_of_Kuragu6620Battle")
+REGISTER_GOAL(GOAL_DaughterOfChaos6620_Battle, "DaughterOfChaos6620Battle")
 local PushR_min = 0
 local PushR_max = 1
 local NormalR2_min = 0
@@ -13,8 +13,8 @@ local Magic2_min = 4
 local Magic2_max = 4
 local Magic3_min = 5
 local Magic3_max = 5
-REGISTER_GOAL_NO_UPDATE(GOAL_Sister_of_Kuragu6620_Battle, 1)
-function Sister_of_Kuragu6620Battle_Activate(ai, goal)
+REGISTER_GOAL_NO_UPDATE(GOAL_DaughterOfChaos6620_Battle, 1)
+function DaughterOfChaos6620Battle_Activate(ai, goal)
     local actPerArr = {}
     local actFuncArr = {}
     local defFuncParamTbl = {}
@@ -36,17 +36,17 @@ function Sister_of_Kuragu6620Battle_Activate(ai, goal)
         actPerArr[19] = 30
         actPerArr[20] = 40
     end
-    actFuncArr[18] = REGIST_FUNC(ai, goal, Sister_of_Kuragu6620_Act18)
-    actFuncArr[19] = REGIST_FUNC(ai, goal, Sister_of_Kuragu6620_Act19)
-    actFuncArr[20] = REGIST_FUNC(ai, goal, Sister_of_Kuragu6620_Act20)
-    local atkAfterFunc = REGIST_FUNC(ai, goal, Sister_of_Kuragu6620_ActAfter_AdjustSpace, atkAfterOddsTbl)
+    actFuncArr[18] = REGIST_FUNC(ai, goal, DaughterOfChaos6620_Act18)
+    actFuncArr[19] = REGIST_FUNC(ai, goal, DaughterOfChaos6620_Act19)
+    actFuncArr[20] = REGIST_FUNC(ai, goal, DaughterOfChaos6620_Act20)
+    local atkAfterFunc = REGIST_FUNC(ai, goal, DaughterOfChaos6620_ActAfter_AdjustSpace, atkAfterOddsTbl)
     Common_Battle_Activate(ai, goal, actPerArr, actFuncArr, atkAfterFunc, defFuncParamTbl)
     return 
 end
 
 PushR_min = Magic_max
 PushR_min = Magic_min
-function Sister_of_Kuragu6620_Act18(ai, goal, paramTbl)
+function DaughterOfChaos6620_Act18(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -66,7 +66,7 @@ end
 
 PushR_min = Magic2_max
 PushR_min = Magic2_min
-function Sister_of_Kuragu6620_Act19(ai, goal, paramTbl)
+function DaughterOfChaos6620_Act19(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -86,7 +86,7 @@ end
 
 PushR_min = Magic3_max
 PushR_min = Magic3_min
-function Sister_of_Kuragu6620_Act20(ai, goal, paramTbl)
+function DaughterOfChaos6620_Act20(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local targetDist = ai:GetDist(TARGET_ENE_0)
@@ -106,7 +106,7 @@ function Sister_of_Kuragu6620_Act20(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Sister_of_Kuragu6620_ActAfter_AdjustSpace(ai, goal, paramTbl)
+function DaughterOfChaos6620_ActAfter_AdjustSpace(ai, goal, paramTbl)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     local MoveDist = 3
@@ -116,15 +116,15 @@ function Sister_of_Kuragu6620_ActAfter_AdjustSpace(ai, goal, paramTbl)
     return 
 end
 
-function Sister_of_Kuragu6620Battle_Update(ai, goal)
+function DaughterOfChaos6620Battle_Update(ai, goal)
     return GOAL_RESULT_Continue
 end
 
-function Sister_of_Kuragu6620Battle_Terminate(ai, goal)
+function DaughterOfChaos6620Battle_Terminate(ai, goal)
     return 
 end
 
-function Sister_of_Kuragu6620Battle_Interupt(ai, goal)
+function DaughterOfChaos6620Battle_Interupt(ai, goal)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)

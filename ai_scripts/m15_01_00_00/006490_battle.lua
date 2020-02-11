@@ -1,4 +1,4 @@
-REGISTER_GOAL(GOAL_Attendant_of_laughtrecA6490_Battle, "Attendant_of_laughtrecA6490Battle")
+REGISTER_GOAL(GOAL_LautrecsWarrior6490_Battle, "LautrecsWarrior6490Battle")
 local NormalR_min = 0
 local NormalR_max = 2.8
 local LargeR_min = 0
@@ -11,8 +11,8 @@ local PushR_min = 0
 local PushR_max = 1
 local Guard_NormalR_min = 0
 local Guard_NormalR_max = 2.3
-REGISTER_GOAL_NO_UPDATE(GOAL_Attendant_of_laughtrecA6490_Battle, 1)
-function Attendant_of_laughtrecA6490Battle_Activate(ai, goal)
+REGISTER_GOAL_NO_UPDATE(GOAL_LautrecsWarrior6490_Battle, 1)
+function LautrecsWarrior6490Battle_Activate(ai, goal)
     local actPerArr = {}
     local actFuncArr = {}
     local defFuncParamTbl = {}
@@ -53,20 +53,20 @@ function Attendant_of_laughtrecA6490Battle_Activate(ai, goal)
         actPerArr[19] = 100 * GuardTaiou
         actPerArr[20] = 30
     end
-    actFuncArr[1] = REGIST_FUNC(ai, goal, Attendant_of_laughtrecA6490_Act01)
-    actFuncArr[2] = REGIST_FUNC(ai, goal, Attendant_of_laughtrecA6490_Act02)
-    actFuncArr[5] = REGIST_FUNC(ai, goal, Attendant_of_laughtrecA6490_Act05)
-    actFuncArr[7] = REGIST_FUNC(ai, goal, Attendant_of_laughtrecA6490_Act07)
-    actFuncArr[17] = REGIST_FUNC(ai, goal, Attendant_of_laughtrecA6490_Act17)
-    actFuncArr[19] = REGIST_FUNC(ai, goal, Attendant_of_laughtrecA6490_Act19)
-    actFuncArr[20] = REGIST_FUNC(ai, goal, Attendant_of_laughtrecA6490_Act20)
-    local atkAfterFunc = REGIST_FUNC(ai, goal, Attendant_of_laughtrecA6490_ActAfter_AdjustSpace, atkAfterOddsTbl)
+    actFuncArr[1] = REGIST_FUNC(ai, goal, LautrecsWarrior6490_Act01)
+    actFuncArr[2] = REGIST_FUNC(ai, goal, LautrecsWarrior6490_Act02)
+    actFuncArr[5] = REGIST_FUNC(ai, goal, LautrecsWarrior6490_Act05)
+    actFuncArr[7] = REGIST_FUNC(ai, goal, LautrecsWarrior6490_Act07)
+    actFuncArr[17] = REGIST_FUNC(ai, goal, LautrecsWarrior6490_Act17)
+    actFuncArr[19] = REGIST_FUNC(ai, goal, LautrecsWarrior6490_Act19)
+    actFuncArr[20] = REGIST_FUNC(ai, goal, LautrecsWarrior6490_Act20)
+    local atkAfterFunc = REGIST_FUNC(ai, goal, LautrecsWarrior6490_ActAfter_AdjustSpace, atkAfterOddsTbl)
     Common_Battle_Activate(ai, goal, actPerArr, actFuncArr, atkAfterFunc, defFuncParamTbl)
     return 
 end
 
 NormalR_min = Guard_NormalR_max
-function Attendant_of_laughtrecA6490_Act01(ai, goal, paramTbl)
+function LautrecsWarrior6490_Act01(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -92,7 +92,7 @@ function Attendant_of_laughtrecA6490_Act01(ai, goal, paramTbl)
 end
 
 NormalR_min = LargeR_max
-function Attendant_of_laughtrecA6490_Act02(ai, goal, paramTbl)
+function LautrecsWarrior6490_Act02(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -114,7 +114,7 @@ function Attendant_of_laughtrecA6490_Act02(ai, goal, paramTbl)
 end
 
 NormalR_min = Backstep_Atk_max
-function Attendant_of_laughtrecA6490_Act05(ai, goal, paramTbl)
+function LautrecsWarrior6490_Act05(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -130,7 +130,7 @@ function Attendant_of_laughtrecA6490_Act05(ai, goal, paramTbl)
 end
 
 NormalR_min = Rolling_Atk_max
-function Attendant_of_laughtrecA6490_Act07(ai, goal, paramTbl)
+function LautrecsWarrior6490_Act07(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -146,7 +146,7 @@ function Attendant_of_laughtrecA6490_Act07(ai, goal, paramTbl)
 end
 
 NormalR_min = PushR_max
-function Attendant_of_laughtrecA6490_Act17(ai, goal, paramTbl)
+function LautrecsWarrior6490_Act17(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = PushR_max
@@ -159,7 +159,7 @@ function Attendant_of_laughtrecA6490_Act17(ai, goal, paramTbl)
 end
 
 NormalR_min = Guard_NormalR_max
-function Attendant_of_laughtrecA6490_Act19(ai, goal, paramTbl)
+function LautrecsWarrior6490_Act19(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -173,7 +173,7 @@ function Attendant_of_laughtrecA6490_Act19(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Attendant_of_laughtrecA6490_Act20(ai, goal, paramTbl)
+function LautrecsWarrior6490_Act20(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     if 3 <= targetDist then
@@ -187,7 +187,7 @@ function Attendant_of_laughtrecA6490_Act20(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Attendant_of_laughtrecA6490_ActAfter_AdjustSpace(ai, goal, paramTbl)
+function LautrecsWarrior6490_ActAfter_AdjustSpace(ai, goal, paramTbl)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     if fate <= 80 then
@@ -201,16 +201,16 @@ function Attendant_of_laughtrecA6490_ActAfter_AdjustSpace(ai, goal, paramTbl)
     return 
 end
 
-function Attendant_of_laughtrecA6490Battle_Update(ai, goal)
+function LautrecsWarrior6490Battle_Update(ai, goal)
     return GOAL_RESULT_Continue
 end
 
-function Attendant_of_laughtrecA6490Battle_Terminate(ai, goal)
+function LautrecsWarrior6490Battle_Terminate(ai, goal)
     return 
 end
 
 NormalR_min = LargeR_max
-function Attendant_of_laughtrecA6490Battle_Interupt(ai, goal)
+function LautrecsWarrior6490Battle_Interupt(ai, goal)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)

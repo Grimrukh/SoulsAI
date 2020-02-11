@@ -1,4 +1,4 @@
-REGISTER_GOAL(GOAL_Frustrated_merchant6250_Battle, "Frustrated_merchant6250Battle")
+REGISTER_GOAL(GOAL_CrestfallenMerchant6250_Battle, "CrestfallenMerchant6250Battle")
 local NormalR_min = 0
 local NormalR_max = 2
 local LargeR_min = 0
@@ -13,8 +13,8 @@ local Backstep_AtkW_min = 0
 local Backstep_AtkW_max = 2
 local PushR_min = 0
 local PushR_max = 1
-REGISTER_GOAL_NO_UPDATE(GOAL_Frustrated_merchant6250_Battle, 1)
-function Frustrated_merchant6250Battle_Activate(ai, goal)
+REGISTER_GOAL_NO_UPDATE(GOAL_CrestfallenMerchant6250_Battle, 1)
+function CrestfallenMerchant6250Battle_Activate(ai, goal)
     local actPerArr = {}
     local actFuncArr = {}
     local defFuncParamTbl = {}
@@ -67,23 +67,23 @@ function Frustrated_merchant6250Battle_Activate(ai, goal)
         actPerArr[17] = 20 * RYOUTE_odds
         actPerArr[20] = 30 * RYOUTE_odds
     end
-    actFuncArr[1] = REGIST_FUNC(ai, goal, Frustrated_merchant6250_Act01)
-    actFuncArr[2] = REGIST_FUNC(ai, goal, Frustrated_merchant6250_Act02)
-    actFuncArr[5] = REGIST_FUNC(ai, goal, Frustrated_merchant6250_Act05)
-    actFuncArr[7] = REGIST_FUNC(ai, goal, Frustrated_merchant6250_Act07)
-    actFuncArr[9] = REGIST_FUNC(ai, goal, Frustrated_merchant6250_Act09)
-    actFuncArr[10] = REGIST_FUNC(ai, goal, Frustrated_merchant6250_Act10)
-    actFuncArr[13] = REGIST_FUNC(ai, goal, Frustrated_merchant6250_Act13)
-    actFuncArr[15] = REGIST_FUNC(ai, goal, Frustrated_merchant6250_Act15)
-    actFuncArr[17] = REGIST_FUNC(ai, goal, Frustrated_merchant6250_Act17)
-    actFuncArr[20] = REGIST_FUNC(ai, goal, Frustrated_merchant6250_Act20)
-    local atkAfterFunc = REGIST_FUNC(ai, goal, Frustrated_merchant6250_ActAfter_AdjustSpace, atkAfterOddsTbl)
+    actFuncArr[1] = REGIST_FUNC(ai, goal, CrestfallenMerchant6250_Act01)
+    actFuncArr[2] = REGIST_FUNC(ai, goal, CrestfallenMerchant6250_Act02)
+    actFuncArr[5] = REGIST_FUNC(ai, goal, CrestfallenMerchant6250_Act05)
+    actFuncArr[7] = REGIST_FUNC(ai, goal, CrestfallenMerchant6250_Act07)
+    actFuncArr[9] = REGIST_FUNC(ai, goal, CrestfallenMerchant6250_Act09)
+    actFuncArr[10] = REGIST_FUNC(ai, goal, CrestfallenMerchant6250_Act10)
+    actFuncArr[13] = REGIST_FUNC(ai, goal, CrestfallenMerchant6250_Act13)
+    actFuncArr[15] = REGIST_FUNC(ai, goal, CrestfallenMerchant6250_Act15)
+    actFuncArr[17] = REGIST_FUNC(ai, goal, CrestfallenMerchant6250_Act17)
+    actFuncArr[20] = REGIST_FUNC(ai, goal, CrestfallenMerchant6250_Act20)
+    local atkAfterFunc = REGIST_FUNC(ai, goal, CrestfallenMerchant6250_ActAfter_AdjustSpace, atkAfterOddsTbl)
     Common_Battle_Activate(ai, goal, actPerArr, actFuncArr, atkAfterFunc, defFuncParamTbl)
     return 
 end
 
 NormalR_min = NormalR_max
-function Frustrated_merchant6250_Act01(ai, goal, paramTbl)
+function CrestfallenMerchant6250_Act01(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -103,7 +103,7 @@ function Frustrated_merchant6250_Act01(ai, goal, paramTbl)
 end
 
 NormalR_min = LargeR_max
-function Frustrated_merchant6250_Act02(ai, goal, paramTbl)
+function CrestfallenMerchant6250_Act02(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -118,7 +118,7 @@ function Frustrated_merchant6250_Act02(ai, goal, paramTbl)
 end
 
 NormalR_min = Backstep_Atk_max
-function Frustrated_merchant6250_Act05(ai, goal, paramTbl)
+function CrestfallenMerchant6250_Act05(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -133,7 +133,7 @@ function Frustrated_merchant6250_Act05(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Frustrated_merchant6250_Act07(ai, goal, paramTbl)
+function CrestfallenMerchant6250_Act07(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -149,7 +149,7 @@ function Frustrated_merchant6250_Act07(ai, goal, paramTbl)
 end
 
 NormalR_min = Whand_jyaku_max
-function Frustrated_merchant6250_Act09(ai, goal, paramTbl)
+function CrestfallenMerchant6250_Act09(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -169,7 +169,7 @@ function Frustrated_merchant6250_Act09(ai, goal, paramTbl)
 end
 
 NormalR_min = Whand_kyou_max
-function Frustrated_merchant6250_Act10(ai, goal, paramTbl)
+function CrestfallenMerchant6250_Act10(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -184,7 +184,7 @@ function Frustrated_merchant6250_Act10(ai, goal, paramTbl)
 end
 
 NormalR_min = Backstep_AtkW_max
-function Frustrated_merchant6250_Act13(ai, goal, paramTbl)
+function CrestfallenMerchant6250_Act13(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -199,7 +199,7 @@ function Frustrated_merchant6250_Act13(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Frustrated_merchant6250_Act15(ai, goal, paramTbl)
+function CrestfallenMerchant6250_Act15(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -215,7 +215,7 @@ function Frustrated_merchant6250_Act15(ai, goal, paramTbl)
 end
 
 NormalR_min = PushR_max
-function Frustrated_merchant6250_Act17(ai, goal, paramTbl)
+function CrestfallenMerchant6250_Act17(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = PushR_max
@@ -228,7 +228,7 @@ function Frustrated_merchant6250_Act17(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Frustrated_merchant6250_Act20(ai, goal, paramTbl)
+function CrestfallenMerchant6250_Act20(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     if 3 <= targetDist then
@@ -242,7 +242,7 @@ function Frustrated_merchant6250_Act20(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Frustrated_merchant6250_ActAfter_AdjustSpace(ai, goal, paramTbl)
+function CrestfallenMerchant6250_ActAfter_AdjustSpace(ai, goal, paramTbl)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     local MoveDist = 3
@@ -256,16 +256,16 @@ function Frustrated_merchant6250_ActAfter_AdjustSpace(ai, goal, paramTbl)
     return 
 end
 
-function Frustrated_merchant6250Battle_Update(ai, goal)
+function CrestfallenMerchant6250Battle_Update(ai, goal)
     return GOAL_RESULT_Continue
 end
 
-function Frustrated_merchant6250Battle_Terminate(ai, goal)
+function CrestfallenMerchant6250Battle_Terminate(ai, goal)
     return 
 end
 
 NormalR_min = LargeR_max
-function Frustrated_merchant6250Battle_Interupt(ai, goal)
+function CrestfallenMerchant6250Battle_Interupt(ai, goal)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)

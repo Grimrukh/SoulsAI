@@ -1,4 +1,4 @@
-REGISTER_GOAL(GOAL_TempleKnight_Enemy6551_Battle, "TempleKnight_Enemy6551Battle")
+REGISTER_GOAL(GOAL_PaladinLeeroyInvader6550_Battle, "PaladinLeeroyInvader6550Battle")
 local NormalR_min = 0
 local NormalR_max = 2.5
 local LargeR_min = 0
@@ -17,8 +17,8 @@ local Magic_min = 8
 local Magic_max = 8
 local Magic2_min = 0
 local Magic2_max = 2
-REGISTER_GOAL_NO_UPDATE(GOAL_TempleKnight_Enemy6551_Battle, 1)
-function TempleKnight_Enemy6551Battle_Activate(ai, goal)
+REGISTER_GOAL_NO_UPDATE(GOAL_PaladinLeeroyInvader6550_Battle, 1)
+function PaladinLeeroyInvader6550Battle_Activate(ai, goal)
     local actPerArr = {}
     local actFuncArr = {}
     local defFuncParamTbl = {}
@@ -73,23 +73,23 @@ function TempleKnight_Enemy6551Battle_Activate(ai, goal)
         actPerArr[19] = 20 * MagicValue2
         actPerArr[20] = 40
     end
-    actFuncArr[1] = REGIST_FUNC(ai, goal, TempleKnight_Enemy6551_Act01)
-    actFuncArr[2] = REGIST_FUNC(ai, goal, TempleKnight_Enemy6551_Act02)
-    actFuncArr[5] = REGIST_FUNC(ai, goal, TempleKnight_Enemy6551_Act05)
-    actFuncArr[9] = REGIST_FUNC(ai, goal, TempleKnight_Enemy6551_Act09)
-    actFuncArr[13] = REGIST_FUNC(ai, goal, TempleKnight_Enemy6551_Act13)
-    actFuncArr[14] = REGIST_FUNC(ai, goal, TempleKnight_Enemy6551_Act14)
-    actFuncArr[17] = REGIST_FUNC(ai, goal, TempleKnight_Enemy6551_Act17)
-    actFuncArr[18] = REGIST_FUNC(ai, goal, TempleKnight_Enemy6551_Act18)
-    actFuncArr[19] = REGIST_FUNC(ai, goal, TempleKnight_Enemy6551_Act19)
-    actFuncArr[20] = REGIST_FUNC(ai, goal, TempleKnight_Enemy6551_Act20)
-    local atkAfterFunc = REGIST_FUNC(ai, goal, TempleKnight_Enemy6551_ActAfter_AdjustSpace, atkAfterOddsTbl)
+    actFuncArr[1] = REGIST_FUNC(ai, goal, PaladinLeeroyInvader6550_Act01)
+    actFuncArr[2] = REGIST_FUNC(ai, goal, PaladinLeeroyInvader6550_Act02)
+    actFuncArr[5] = REGIST_FUNC(ai, goal, PaladinLeeroyInvader6550_Act05)
+    actFuncArr[9] = REGIST_FUNC(ai, goal, PaladinLeeroyInvader6550_Act09)
+    actFuncArr[13] = REGIST_FUNC(ai, goal, PaladinLeeroyInvader6550_Act13)
+    actFuncArr[14] = REGIST_FUNC(ai, goal, PaladinLeeroyInvader6550_Act14)
+    actFuncArr[17] = REGIST_FUNC(ai, goal, PaladinLeeroyInvader6550_Act17)
+    actFuncArr[18] = REGIST_FUNC(ai, goal, PaladinLeeroyInvader6550_Act18)
+    actFuncArr[19] = REGIST_FUNC(ai, goal, PaladinLeeroyInvader6550_Act19)
+    actFuncArr[20] = REGIST_FUNC(ai, goal, PaladinLeeroyInvader6550_Act20)
+    local atkAfterFunc = REGIST_FUNC(ai, goal, PaladinLeeroyInvader6550_ActAfter_AdjustSpace, atkAfterOddsTbl)
     Common_Battle_Activate(ai, goal, actPerArr, actFuncArr, atkAfterFunc, defFuncParamTbl)
     return 
 end
 
 NormalR_min = NormalR_max
-function TempleKnight_Enemy6551_Act01(ai, goal, paramTbl)
+function PaladinLeeroyInvader6550_Act01(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -109,7 +109,7 @@ function TempleKnight_Enemy6551_Act01(ai, goal, paramTbl)
 end
 
 NormalR_min = LargeR_max
-function TempleKnight_Enemy6551_Act02(ai, goal, paramTbl)
+function PaladinLeeroyInvader6550_Act02(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -131,7 +131,7 @@ function TempleKnight_Enemy6551_Act02(ai, goal, paramTbl)
 end
 
 NormalR_min = Backstep_Atk_max
-function TempleKnight_Enemy6551_Act05(ai, goal, paramTbl)
+function PaladinLeeroyInvader6550_Act05(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -147,7 +147,7 @@ function TempleKnight_Enemy6551_Act05(ai, goal, paramTbl)
 end
 
 NormalR_min = Whand_jyaku_max
-function TempleKnight_Enemy6551_Act09(ai, goal, paramTbl)
+function PaladinLeeroyInvader6550_Act09(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -168,7 +168,7 @@ function TempleKnight_Enemy6551_Act09(ai, goal, paramTbl)
 end
 
 NormalR_min = Backstep_AtkW_max
-function TempleKnight_Enemy6551_Act13(ai, goal, paramTbl)
+function PaladinLeeroyInvader6550_Act13(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -184,7 +184,7 @@ function TempleKnight_Enemy6551_Act13(ai, goal, paramTbl)
 end
 
 NormalR_min = PushR_max
-function TempleKnight_Enemy6551_Act17(ai, goal, paramTbl)
+function PaladinLeeroyInvader6550_Act17(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -199,7 +199,7 @@ end
 
 NormalR_min = Magic_max
 NormalR_min = Magic_min
-function TempleKnight_Enemy6551_Act18(ai, goal, paramTbl)
+function PaladinLeeroyInvader6550_Act18(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -218,7 +218,7 @@ function TempleKnight_Enemy6551_Act18(ai, goal, paramTbl)
 end
 
 NormalR_min = Magic2_max
-function TempleKnight_Enemy6551_Act19(ai, goal, paramTbl)
+function PaladinLeeroyInvader6550_Act19(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -235,7 +235,7 @@ function TempleKnight_Enemy6551_Act19(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function TempleKnight_Enemy6551_Act20(ai, goal, paramTbl)
+function PaladinLeeroyInvader6550_Act20(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -250,7 +250,7 @@ function TempleKnight_Enemy6551_Act20(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function TempleKnight_Enemy6551_ActAfter_AdjustSpace(ai, goal, paramTbl)
+function PaladinLeeroyInvader6550_ActAfter_AdjustSpace(ai, goal, paramTbl)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     local MoveDist = 3
@@ -275,16 +275,16 @@ function TempleKnight_Enemy6551_ActAfter_AdjustSpace(ai, goal, paramTbl)
     return 
 end
 
-function TempleKnight_Enemy6551Battle_Update(ai, goal)
+function PaladinLeeroyInvader6550Battle_Update(ai, goal)
     return GOAL_RESULT_Continue
 end
 
-function TempleKnight_Enemy6551Battle_Terminate(ai, goal)
+function PaladinLeeroyInvader6550Battle_Terminate(ai, goal)
     return 
 end
 
 NormalR_min = LargeR_max
-function TempleKnight_Enemy6551Battle_Interupt(ai, goal)
+function PaladinLeeroyInvader6550Battle_Interupt(ai, goal)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)

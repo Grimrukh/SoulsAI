@@ -1,4 +1,4 @@
-REGISTER_GOAL(GOAL_PondAunt_Enemy6531_Battle, "PondAunt_Enemy6531Battle")
+REGISTER_GOAL(GOAL_ManeaterMildredInvader6531_Battle, "ManeaterMildredInvader6531Battle")
 local NormalR_min = 0
 local NormalR_max = 1.6
 local LargeR_min = 0
@@ -15,8 +15,8 @@ local Backstep_Atk_min = 0
 local Backstep_Atk_max = 1
 local Rolling_Atk_min = 4
 local Rolling_Atk_max = 5
-REGISTER_GOAL_NO_UPDATE(GOAL_PondAunt_Enemy6531_Battle, 1)
-function PondAunt_Enemy6531Battle_Activate(ai, goal)
+REGISTER_GOAL_NO_UPDATE(GOAL_ManeaterMildredInvader6531_Battle, 1)
+function ManeaterMildredInvader6531Battle_Activate(ai, goal)
     local actPerArr = {}
     local actFuncArr = {}
     local defFuncParamTbl = {}
@@ -81,22 +81,22 @@ function PondAunt_Enemy6531Battle_Activate(ai, goal)
         actPerArr[9] = 10
         actPerArr[10] = 5
     end
-    actFuncArr[1] = REGIST_FUNC(ai, goal, PondAunt_Enemy6531_Act01)
-    actFuncArr[3] = REGIST_FUNC(ai, goal, PondAunt_Enemy6531_Act03)
-    actFuncArr[4] = REGIST_FUNC(ai, goal, PondAunt_Enemy6531_Act04)
-    actFuncArr[5] = REGIST_FUNC(ai, goal, PondAunt_Enemy6531_Act05)
-    actFuncArr[6] = REGIST_FUNC(ai, goal, PondAunt_Enemy6531_Act06)
-    actFuncArr[7] = REGIST_FUNC(ai, goal, PondAunt_Enemy6531_Act07)
-    actFuncArr[8] = REGIST_FUNC(ai, goal, PondAunt_Enemy6531_Act08)
-    actFuncArr[9] = REGIST_FUNC(ai, goal, PondAunt_Enemy6531_Act09)
-    actFuncArr[10] = REGIST_FUNC(ai, goal, PondAunt_Enemy6531_Act10)
-    local atkAfterFunc = REGIST_FUNC(ai, goal, PondAunt_Enemy6531_ActAfter_AdjustSpace, atkAfterOddsTbl)
+    actFuncArr[1] = REGIST_FUNC(ai, goal, ManeaterMildredInvader6531_Act01)
+    actFuncArr[3] = REGIST_FUNC(ai, goal, ManeaterMildredInvader6531_Act03)
+    actFuncArr[4] = REGIST_FUNC(ai, goal, ManeaterMildredInvader6531_Act04)
+    actFuncArr[5] = REGIST_FUNC(ai, goal, ManeaterMildredInvader6531_Act05)
+    actFuncArr[6] = REGIST_FUNC(ai, goal, ManeaterMildredInvader6531_Act06)
+    actFuncArr[7] = REGIST_FUNC(ai, goal, ManeaterMildredInvader6531_Act07)
+    actFuncArr[8] = REGIST_FUNC(ai, goal, ManeaterMildredInvader6531_Act08)
+    actFuncArr[9] = REGIST_FUNC(ai, goal, ManeaterMildredInvader6531_Act09)
+    actFuncArr[10] = REGIST_FUNC(ai, goal, ManeaterMildredInvader6531_Act10)
+    local atkAfterFunc = REGIST_FUNC(ai, goal, ManeaterMildredInvader6531_ActAfter_AdjustSpace, atkAfterOddsTbl)
     Common_Battle_Activate(ai, goal, actPerArr, actFuncArr, atkAfterFunc, defFuncParamTbl)
     return 
 end
 
 NormalR_min = NormalR_max
-function PondAunt_Enemy6531_Act01(ai, goal, paramTbl)
+function ManeaterMildredInvader6531_Act01(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -113,7 +113,7 @@ function PondAunt_Enemy6531_Act01(ai, goal, paramTbl)
 end
 
 NormalR_min = LargeR_max
-function PondAunt_Enemy6531_Act03(ai, goal, paramTbl)
+function ManeaterMildredInvader6531_Act03(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -129,7 +129,7 @@ function PondAunt_Enemy6531_Act03(ai, goal, paramTbl)
 end
 
 NormalR_min = PushR_max
-function PondAunt_Enemy6531_Act04(ai, goal, paramTbl)
+function ManeaterMildredInvader6531_Act04(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = PushR_max
@@ -143,7 +143,7 @@ end
 
 NormalR_min = Magic_max
 NormalR_min = Magic_min
-function PondAunt_Enemy6531_Act05(ai, goal, paramTbl)
+function ManeaterMildredInvader6531_Act05(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -164,7 +164,7 @@ function PondAunt_Enemy6531_Act05(ai, goal, paramTbl)
 end
 
 NormalR_min = Backstep_Atk_max
-function PondAunt_Enemy6531_Act06(ai, goal, paramTbl)
+function ManeaterMildredInvader6531_Act06(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -183,7 +183,7 @@ function PondAunt_Enemy6531_Act06(ai, goal, paramTbl)
 end
 
 NormalR_min = Rolling_Atk_max
-function PondAunt_Enemy6531_Act07(ai, goal, paramTbl)
+function ManeaterMildredInvader6531_Act07(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -200,7 +200,7 @@ function PondAunt_Enemy6531_Act07(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function PondAunt_Enemy6531_Act08(ai, goal, paramTbl)
+function ManeaterMildredInvader6531_Act08(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     if 3 <= targetDist then
@@ -214,7 +214,7 @@ function PondAunt_Enemy6531_Act08(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function PondAunt_Enemy6531_Act09(ai, goal, paramTbl)
+function ManeaterMildredInvader6531_Act09(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     goal:AddSubGoal(GOAL_COMMON_SpinStep, 10, NPC_ATK_StepB, TARGET_ENE_0, 0, AI_DIR_TYPE_B, 2)
@@ -222,7 +222,7 @@ function PondAunt_Enemy6531_Act09(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function PondAunt_Enemy6531_Act10(ai, goal, paramTbl)
+function ManeaterMildredInvader6531_Act10(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     goal:AddSubGoal(GOAL_COMMON_ComboAttackTunableSpin, 10, NPC_ATK_SwitchWep, TARGET_ENE_0, DIST_Middle, 1.5, 90)
@@ -230,7 +230,7 @@ function PondAunt_Enemy6531_Act10(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function PondAunt_Enemy6531_ActAfter_AdjustSpace(ai, goal, paramTbl)
+function ManeaterMildredInvader6531_ActAfter_AdjustSpace(ai, goal, paramTbl)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     local MoveDist = 3
@@ -255,16 +255,16 @@ function PondAunt_Enemy6531_ActAfter_AdjustSpace(ai, goal, paramTbl)
     return 
 end
 
-function PondAunt_Enemy6531Battle_Update(ai, goal)
+function ManeaterMildredInvader6531Battle_Update(ai, goal)
     return GOAL_RESULT_Continue
 end
 
-function PondAunt_Enemy6531Battle_Terminate(ai, goal)
+function ManeaterMildredInvader6531Battle_Terminate(ai, goal)
     return 
 end
 
 NormalR_min = LargeR_max
-function PondAunt_Enemy6531Battle_Interupt(ai, goal)
+function ManeaterMildredInvader6531Battle_Interupt(ai, goal)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)

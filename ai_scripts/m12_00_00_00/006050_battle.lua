@@ -1,22 +1,22 @@
-REGISTER_GOAL(GOAL_Stateless_princess6050_Battle, "Stateless_princess6050Battle")
-REGISTER_GOAL_NO_UPDATE(GOAL_Stateless_princess6050_Battle, 1)
-function Stateless_princess6050Battle_Activate(ai, goal)
+REGISTER_GOAL(GOAL_PrincessDusk6050_Battle, "PrincessDusk6050Battle")
+REGISTER_GOAL_NO_UPDATE(GOAL_PrincessDusk6050_Battle, 1)
+function PrincessDusk6050Battle_Activate(ai, goal)
     local hprate = ai:GetHpRate(TARGET_SELF)
     local selfmp = ai:GetMp(TARGET_SELF)
     if 0.5 <= hprate then
-        Stateless_princess6050_Battle_Sword(ai, goal)
-        Stateless_princess6050_Battle_Kougeki_Noato(ai, goal)
+        PrincessDusk6050_Battle_Sword(ai, goal)
+        PrincessDusk6050_Battle_Kougeki_Noato(ai, goal)
     elseif 15 <= selfmp then
-        Stateless_princess6050_Battle_Magic(ai, goal)
-        Stateless_princess6050_Battle_Kougeki_Noato(ai, goal)
+        PrincessDusk6050_Battle_Magic(ai, goal)
+        PrincessDusk6050_Battle_Kougeki_Noato(ai, goal)
     else
-        Stateless_princess6050_Battle_Sword(ai, goal)
-        Stateless_princess6050_Battle_Kougeki_Noato(ai, goal)
+        PrincessDusk6050_Battle_Sword(ai, goal)
+        PrincessDusk6050_Battle_Kougeki_Noato(ai, goal)
     end
     return 
 end
 
-function Stateless_princess6050_Battle_Sword(ai, goal)
+function PrincessDusk6050_Battle_Sword(ai, goal)
     local fate = ai:GetRandam_Int(1, 100)
     local NormalR_Dist = 2.5
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -24,18 +24,18 @@ function Stateless_princess6050_Battle_Sword(ai, goal)
     CommonNPC_UsePrimaryLeftHand(ai, goal)
     if fate <= 40 then
         goal:AddSubGoal(GOAL_COMMON_ApproachTarget, 4, TARGET_ENE_0, NormalR_Dist, TARGET_SELF, true, -1)
-        Stateless_princess6050_Battle_NormalR_Comb(ai, goal)
+        PrincessDusk6050_Battle_NormalR_Comb(ai, goal)
     elseif fate <= 70 then
         goal:AddSubGoal(GOAL_COMMON_ApproachTarget, 4, TARGET_ENE_0, NormalR_Dist, TARGET_SELF, false, -1)
         goal:AddSubGoal(GOAL_COMMON_SidewayMove, 2, TARGET_ENE_0, ai:GetRandam_Int(0, 1), ai:GetRandam_Int(90, 120), false, true, -1)
-        Stateless_princess6050_Battle_NormalR_Comb(ai, goal)
+        PrincessDusk6050_Battle_NormalR_Comb(ai, goal)
     else
         goal:AddSubGoal(GOAL_COMMON_LeaveTarget, 3, TARGET_ENE_0, 7, TARGET_ENE_0, false, -1)
     end
     return 
 end
 
-function Stateless_princess6050_Battle_Magic(ai, goal)
+function PrincessDusk6050_Battle_Magic(ai, goal)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local BackDist = 8
     if targetDist <= BackDist then
@@ -47,7 +47,7 @@ function Stateless_princess6050_Battle_Magic(ai, goal)
     return 
 end
 
-function Stateless_princess6050_Battle_NormalR_Comb(ai, goal)
+function PrincessDusk6050_Battle_NormalR_Comb(ai, goal)
     local NR_fate = ai:GetRandam_Int(1, 100)
     local NR_fate2 = ai:GetRandam_Int(1, 100)
     goal:AddSubGoal(GOAL_COMMON_ComboAttackTunableSpin, 10, NPC_ATK_NormalR, TARGET_ENE_0, DIST_Middle, 1.5, 90)
@@ -60,7 +60,7 @@ function Stateless_princess6050_Battle_NormalR_Comb(ai, goal)
     return 
 end
 
-function Stateless_princess6050_Battle_Kougeki_Noato(ai, goal)
+function PrincessDusk6050_Battle_Kougeki_Noato(ai, goal)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     local MoveDist = 3
@@ -84,15 +84,15 @@ function Stateless_princess6050_Battle_Kougeki_Noato(ai, goal)
     return 
 end
 
-function Stateless_princess6050Battle_Update(ai, goal)
+function PrincessDusk6050Battle_Update(ai, goal)
     return GOAL_RESULT_Continue
 end
 
-function Stateless_princess6050Battle_Terminate(ai, goal)
+function PrincessDusk6050Battle_Terminate(ai, goal)
     return 
 end
 
-function Stateless_princess6050Battle_Interupt(ai, goal)
+function PrincessDusk6050Battle_Interupt(ai, goal)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)

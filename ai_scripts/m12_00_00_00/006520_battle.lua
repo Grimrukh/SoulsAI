@@ -1,4 +1,4 @@
-REGISTER_GOAL(GOAL_Witch6520_Battle, "Witch6520Battle")
+REGISTER_GOAL(GOAL_WitchBeatrice6520_Battle, "WitchBeatrice6520Battle")
 local LargeR_min = 0
 local LargeR_max = 1.5
 local PushR_min = 0
@@ -11,8 +11,8 @@ local Magic3_min = 8
 local Magic3_max = 16
 local Magic4_min = 10
 local Magic4_max = 18
-REGISTER_GOAL_NO_UPDATE(GOAL_Witch6520_Battle, 1)
-function Witch6520Battle_Activate(ai, goal)
+REGISTER_GOAL_NO_UPDATE(GOAL_WitchBeatrice6520_Battle, 1)
+function WitchBeatrice6520Battle_Activate(ai, goal)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     local targetDist = ai:GetDist(TARGET_ENE_0)
@@ -56,7 +56,7 @@ function Witch6520Battle_Activate(ai, goal)
             goal:AddSubGoal(GOAL_COMMON_ApproachTarget, 3, POINT_INITIAL, 1, TARGET_SELF, true, 4)
             goal:AddSubGoal(GOAL_COMMON_Wait, 2, TARGET_SELF, 0, 0, 0)
         else
-            Witch6520_Battle(ai, goal)
+            WitchBeatrice6520_Battle(ai, goal)
         end
     elseif 20 <= playerDist or 10 <= targetDist or isFindTarget == false then
         local walk = true
@@ -65,12 +65,12 @@ function Witch6520Battle_Activate(ai, goal)
         end
         goal:AddSubGoal(GOAL_COMMON_ApproachTarget, 3, TARGET_LOCALPLAYER, 1.2, TARGET_SELF, walk, -1)
     else
-        Witch6520_Battle(ai, goal)
+        WitchBeatrice6520_Battle(ai, goal)
     end
     return 
 end
 
-function Witch6520_Battle(ai, goal)
+function WitchBeatrice6520_Battle(ai, goal)
     local actPerArr = {}
     local actFuncArr = {}
     local defFuncParamTbl = {}
@@ -133,20 +133,20 @@ function Witch6520_Battle(ai, goal)
         actPerArr[19] = 10 * MagicValue2
         actPerArr[20] = 10 * MagicValue3
     end
-    actFuncArr[1] = REGIST_FUNC(ai, goal, Witch6520_Act01)
-    actFuncArr[2] = REGIST_FUNC(ai, goal, Witch6520_Act02)
-    actFuncArr[15] = REGIST_FUNC(ai, goal, Witch6520_Act15)
-    actFuncArr[16] = REGIST_FUNC(ai, goal, Witch6520_Act16)
-    actFuncArr[17] = REGIST_FUNC(ai, goal, Witch6520_Act17)
-    actFuncArr[18] = REGIST_FUNC(ai, goal, Witch6520_Act18)
-    actFuncArr[19] = REGIST_FUNC(ai, goal, Witch6520_Act19)
-    actFuncArr[20] = REGIST_FUNC(ai, goal, Witch6520_Act20)
-    local atkAfterFunc = REGIST_FUNC(ai, goal, Witch6520_ActAfter_AdjustSpace, atkAfterOddsTbl)
+    actFuncArr[1] = REGIST_FUNC(ai, goal, WitchBeatrice6520_Act01)
+    actFuncArr[2] = REGIST_FUNC(ai, goal, WitchBeatrice6520_Act02)
+    actFuncArr[15] = REGIST_FUNC(ai, goal, WitchBeatrice6520_Act15)
+    actFuncArr[16] = REGIST_FUNC(ai, goal, WitchBeatrice6520_Act16)
+    actFuncArr[17] = REGIST_FUNC(ai, goal, WitchBeatrice6520_Act17)
+    actFuncArr[18] = REGIST_FUNC(ai, goal, WitchBeatrice6520_Act18)
+    actFuncArr[19] = REGIST_FUNC(ai, goal, WitchBeatrice6520_Act19)
+    actFuncArr[20] = REGIST_FUNC(ai, goal, WitchBeatrice6520_Act20)
+    local atkAfterFunc = REGIST_FUNC(ai, goal, WitchBeatrice6520_ActAfter_AdjustSpace, atkAfterOddsTbl)
     Common_Battle_Activate(ai, goal, actPerArr, actFuncArr, atkAfterFunc, defFuncParamTbl)
     return 
 end
 
-function Witch6520_Act01(ai, goal, paramTbl)
+function WitchBeatrice6520_Act01(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     goal:AddSubGoal(GOAL_COMMON_Wait, 10, TARGET_ENE_0)
@@ -155,7 +155,7 @@ function Witch6520_Act01(ai, goal, paramTbl)
 end
 
 LargeR_min = LargeR_max
-function Witch6520_Act02(ai, goal, paramTbl)
+function WitchBeatrice6520_Act02(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -176,7 +176,7 @@ function Witch6520_Act02(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Witch6520_Act15(ai, goal, paramTbl)
+function WitchBeatrice6520_Act15(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     if 7 <= targetDist then
@@ -191,7 +191,7 @@ function Witch6520_Act15(ai, goal, paramTbl)
 end
 
 LargeR_min = Magic4_min
-function Witch6520_Act16(ai, goal, paramTbl)
+function WitchBeatrice6520_Act16(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -207,7 +207,7 @@ function Witch6520_Act16(ai, goal, paramTbl)
 end
 
 LargeR_min = PushR_max
-function Witch6520_Act17(ai, goal, paramTbl)
+function WitchBeatrice6520_Act17(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = PushR_max
@@ -221,7 +221,7 @@ end
 
 LargeR_min = Magic_max
 LargeR_min = Magic_min
-function Witch6520_Act18(ai, goal, paramTbl)
+function WitchBeatrice6520_Act18(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -247,7 +247,7 @@ end
 
 LargeR_min = Magic2_max
 LargeR_min = Magic2_min
-function Witch6520_Act19(ai, goal, paramTbl)
+function WitchBeatrice6520_Act19(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -273,7 +273,7 @@ end
 
 LargeR_min = Magic3_max
 LargeR_min = Magic3_min
-function Witch6520_Act20(ai, goal, paramTbl)
+function WitchBeatrice6520_Act20(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -296,7 +296,7 @@ function Witch6520_Act20(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Witch6520_ActAfter_AdjustSpace(ai, goal, paramTbl)
+function WitchBeatrice6520_ActAfter_AdjustSpace(ai, goal, paramTbl)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     local MoveDist = 3
@@ -311,15 +311,15 @@ function Witch6520_ActAfter_AdjustSpace(ai, goal, paramTbl)
     return 
 end
 
-function Witch6520Battle_Update(ai, goal)
+function WitchBeatrice6520Battle_Update(ai, goal)
     return GOAL_RESULT_Continue
 end
 
-function Witch6520Battle_Terminate(ai, goal)
+function WitchBeatrice6520Battle_Terminate(ai, goal)
     return 
 end
 
-function Witch6520Battle_Interupt(ai, goal)
+function WitchBeatrice6520Battle_Interupt(ai, goal)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)

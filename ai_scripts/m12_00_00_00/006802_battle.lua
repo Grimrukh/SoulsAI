@@ -1,4 +1,4 @@
-REGISTER_GOAL(GOAL_BanditB6802_Battle, "BanditB6802Battle")
+REGISTER_GOAL(GOAL_ForestHunterSword6802_Battle, "ForestHunterSword6802Battle")
 local NormalR_min = 0
 local NormalR_max = 2.1
 local LargeR_min = 0
@@ -17,8 +17,8 @@ local Rolling_AtkW_min = 4
 local Rolling_AtkW_max = 5
 local PushR_min = 0
 local PushR_max = 1
-REGISTER_GOAL_NO_UPDATE(GOAL_BanditB6802_Battle, 1)
-function BanditB6802Battle_Activate(ai, goal)
+REGISTER_GOAL_NO_UPDATE(GOAL_ForestHunterSword6802_Battle, 1)
+function ForestHunterSword6802Battle_Activate(ai, goal)
     local actPerArr = {}
     local actFuncArr = {}
     local defFuncParamTbl = {}
@@ -65,22 +65,22 @@ function BanditB6802Battle_Activate(ai, goal)
         actPerArr[5] = 10 * KATATE_odds
         actPerArr[17] = 20 * RYOUTE_odds
     end
-    actFuncArr[1] = REGIST_FUNC(ai, goal, BanditB6802_Act01)
-    actFuncArr[2] = REGIST_FUNC(ai, goal, BanditB6802_Act02)
-    actFuncArr[5] = REGIST_FUNC(ai, goal, BanditB6802_Act05)
-    actFuncArr[7] = REGIST_FUNC(ai, goal, BanditB6802_Act07)
-    actFuncArr[9] = REGIST_FUNC(ai, goal, BanditB6802_Act09)
-    actFuncArr[10] = REGIST_FUNC(ai, goal, BanditB6802_Act10)
-    actFuncArr[13] = REGIST_FUNC(ai, goal, BanditB6802_Act13)
-    actFuncArr[15] = REGIST_FUNC(ai, goal, BanditB6802_Act15)
-    actFuncArr[17] = REGIST_FUNC(ai, goal, BanditB6802_Act17)
-    local atkAfterFunc = REGIST_FUNC(ai, goal, BanditB6802_ActAfter_AdjustSpace, atkAfterOddsTbl)
+    actFuncArr[1] = REGIST_FUNC(ai, goal, ForestHunterSword6802_Act01)
+    actFuncArr[2] = REGIST_FUNC(ai, goal, ForestHunterSword6802_Act02)
+    actFuncArr[5] = REGIST_FUNC(ai, goal, ForestHunterSword6802_Act05)
+    actFuncArr[7] = REGIST_FUNC(ai, goal, ForestHunterSword6802_Act07)
+    actFuncArr[9] = REGIST_FUNC(ai, goal, ForestHunterSword6802_Act09)
+    actFuncArr[10] = REGIST_FUNC(ai, goal, ForestHunterSword6802_Act10)
+    actFuncArr[13] = REGIST_FUNC(ai, goal, ForestHunterSword6802_Act13)
+    actFuncArr[15] = REGIST_FUNC(ai, goal, ForestHunterSword6802_Act15)
+    actFuncArr[17] = REGIST_FUNC(ai, goal, ForestHunterSword6802_Act17)
+    local atkAfterFunc = REGIST_FUNC(ai, goal, ForestHunterSword6802_ActAfter_AdjustSpace, atkAfterOddsTbl)
     Common_Battle_Activate(ai, goal, actPerArr, actFuncArr, atkAfterFunc, defFuncParamTbl)
     return 
 end
 
 NormalR_min = NormalR_max
-function BanditB6802_Act01(ai, goal, paramTbl)
+function ForestHunterSword6802_Act01(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -100,7 +100,7 @@ function BanditB6802_Act01(ai, goal, paramTbl)
 end
 
 NormalR_min = LargeR_max
-function BanditB6802_Act02(ai, goal, paramTbl)
+function ForestHunterSword6802_Act02(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -115,7 +115,7 @@ function BanditB6802_Act02(ai, goal, paramTbl)
 end
 
 NormalR_min = Backstep_Atk_max
-function BanditB6802_Act05(ai, goal, paramTbl)
+function ForestHunterSword6802_Act05(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -131,7 +131,7 @@ function BanditB6802_Act05(ai, goal, paramTbl)
 end
 
 NormalR_min = Rolling_Atk_max
-function BanditB6802_Act07(ai, goal, paramTbl)
+function ForestHunterSword6802_Act07(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -147,7 +147,7 @@ function BanditB6802_Act07(ai, goal, paramTbl)
 end
 
 NormalR_min = Whand_jyaku_max
-function BanditB6802_Act09(ai, goal, paramTbl)
+function ForestHunterSword6802_Act09(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -167,7 +167,7 @@ function BanditB6802_Act09(ai, goal, paramTbl)
 end
 
 NormalR_min = Whand_kyou_max
-function BanditB6802_Act10(ai, goal, paramTbl)
+function ForestHunterSword6802_Act10(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -182,7 +182,7 @@ function BanditB6802_Act10(ai, goal, paramTbl)
 end
 
 NormalR_min = Backstep_AtkW_max
-function BanditB6802_Act13(ai, goal, paramTbl)
+function ForestHunterSword6802_Act13(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -198,7 +198,7 @@ function BanditB6802_Act13(ai, goal, paramTbl)
 end
 
 NormalR_min = Rolling_AtkW_max
-function BanditB6802_Act15(ai, goal, paramTbl)
+function ForestHunterSword6802_Act15(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -214,7 +214,7 @@ function BanditB6802_Act15(ai, goal, paramTbl)
 end
 
 NormalR_min = PushR_max
-function BanditB6802_Act17(ai, goal, paramTbl)
+function ForestHunterSword6802_Act17(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = PushR_max
@@ -226,7 +226,7 @@ function BanditB6802_Act17(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function BanditB6802_ActAfter_AdjustSpace(ai, goal, paramTbl)
+function ForestHunterSword6802_ActAfter_AdjustSpace(ai, goal, paramTbl)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     local MoveDist = 3
@@ -247,16 +247,16 @@ function BanditB6802_ActAfter_AdjustSpace(ai, goal, paramTbl)
     return 
 end
 
-function BanditB6802Battle_Update(ai, goal)
+function ForestHunterSword6802Battle_Update(ai, goal)
     return GOAL_RESULT_Continue
 end
 
-function BanditB6802Battle_Terminate(ai, goal)
+function ForestHunterSword6802Battle_Terminate(ai, goal)
     return 
 end
 
 NormalR_min = LargeR_max
-function BanditB6802Battle_Interupt(ai, goal)
+function ForestHunterSword6802Battle_Interupt(ai, goal)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)

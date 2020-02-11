@@ -1,4 +1,4 @@
-REGISTER_GOAL(GOAL_DarkMoon_Juu6640_Battle, "DarkMoon_Juu6640Battle")
+REGISTER_GOAL(GOAL_DarkmoonKnightHeavy6640_Battle, "DarkmoonKnightHeavy6640Battle")
 local NormalR_min = 0
 local NormalR_max = 2.6
 local LargeR_min = 0
@@ -13,8 +13,8 @@ local Backstep_AtkW_min = 0
 local Backstep_AtkW_max = 1.5
 local PushR_min = 0
 local PushR_max = 1
-REGISTER_GOAL_NO_UPDATE(GOAL_DarkMoon_Juu6640_Battle, 1)
-function DarkMoon_Juu6640Battle_Activate(ai, goal)
+REGISTER_GOAL_NO_UPDATE(GOAL_DarkmoonKnightHeavy6640_Battle, 1)
+function DarkmoonKnightHeavy6640Battle_Activate(ai, goal)
     local actPerArr = {}
     local actFuncArr = {}
     local defFuncParamTbl = {}
@@ -65,21 +65,21 @@ function DarkMoon_Juu6640Battle_Activate(ai, goal)
         actPerArr[17] = 20 * RYOUTE_odds
         actPerArr[20] = 30 * RYOUTE_odds
     end
-    actFuncArr[1] = REGIST_FUNC(ai, goal, DarkMoon_Juu6640_Act01)
-    actFuncArr[2] = REGIST_FUNC(ai, goal, DarkMoon_Juu6640_Act02)
-    actFuncArr[5] = REGIST_FUNC(ai, goal, DarkMoon_Juu6640_Act05)
-    actFuncArr[9] = REGIST_FUNC(ai, goal, DarkMoon_Juu6640_Act09)
-    actFuncArr[10] = REGIST_FUNC(ai, goal, DarkMoon_Juu6640_Act10)
-    actFuncArr[13] = REGIST_FUNC(ai, goal, DarkMoon_Juu6640_Act13)
-    actFuncArr[17] = REGIST_FUNC(ai, goal, DarkMoon_Juu6640_Act17)
-    actFuncArr[20] = REGIST_FUNC(ai, goal, DarkMoon_Juu6640_Act20)
-    local atkAfterFunc = REGIST_FUNC(ai, goal, DarkMoon_Juu6640_ActAfter_AdjustSpace, atkAfterOddsTbl)
+    actFuncArr[1] = REGIST_FUNC(ai, goal, DarkmoonKnightHeavy6640_Act01)
+    actFuncArr[2] = REGIST_FUNC(ai, goal, DarkmoonKnightHeavy6640_Act02)
+    actFuncArr[5] = REGIST_FUNC(ai, goal, DarkmoonKnightHeavy6640_Act05)
+    actFuncArr[9] = REGIST_FUNC(ai, goal, DarkmoonKnightHeavy6640_Act09)
+    actFuncArr[10] = REGIST_FUNC(ai, goal, DarkmoonKnightHeavy6640_Act10)
+    actFuncArr[13] = REGIST_FUNC(ai, goal, DarkmoonKnightHeavy6640_Act13)
+    actFuncArr[17] = REGIST_FUNC(ai, goal, DarkmoonKnightHeavy6640_Act17)
+    actFuncArr[20] = REGIST_FUNC(ai, goal, DarkmoonKnightHeavy6640_Act20)
+    local atkAfterFunc = REGIST_FUNC(ai, goal, DarkmoonKnightHeavy6640_ActAfter_AdjustSpace, atkAfterOddsTbl)
     Common_Battle_Activate(ai, goal, actPerArr, actFuncArr, atkAfterFunc, defFuncParamTbl)
     return 
 end
 
 NormalR_min = NormalR_max
-function DarkMoon_Juu6640_Act01(ai, goal, paramTbl)
+function DarkmoonKnightHeavy6640_Act01(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -99,7 +99,7 @@ function DarkMoon_Juu6640_Act01(ai, goal, paramTbl)
 end
 
 NormalR_min = LargeR_max
-function DarkMoon_Juu6640_Act02(ai, goal, paramTbl)
+function DarkmoonKnightHeavy6640_Act02(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -114,7 +114,7 @@ function DarkMoon_Juu6640_Act02(ai, goal, paramTbl)
 end
 
 NormalR_min = Backstep_Atk_max
-function DarkMoon_Juu6640_Act05(ai, goal, paramTbl)
+function DarkmoonKnightHeavy6640_Act05(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     NPC_KATATE_Switch(ai, goal)
@@ -130,7 +130,7 @@ function DarkMoon_Juu6640_Act05(ai, goal, paramTbl)
 end
 
 NormalR_min = Whand_jyaku_max
-function DarkMoon_Juu6640_Act09(ai, goal, paramTbl)
+function DarkmoonKnightHeavy6640_Act09(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -150,7 +150,7 @@ function DarkMoon_Juu6640_Act09(ai, goal, paramTbl)
 end
 
 NormalR_min = Whand_kyou_max
-function DarkMoon_Juu6640_Act10(ai, goal, paramTbl)
+function DarkmoonKnightHeavy6640_Act10(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -165,7 +165,7 @@ function DarkMoon_Juu6640_Act10(ai, goal, paramTbl)
 end
 
 NormalR_min = Backstep_AtkW_max
-function DarkMoon_Juu6640_Act13(ai, goal, paramTbl)
+function DarkmoonKnightHeavy6640_Act13(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -181,7 +181,7 @@ function DarkMoon_Juu6640_Act13(ai, goal, paramTbl)
 end
 
 NormalR_min = PushR_max
-function DarkMoon_Juu6640_Act17(ai, goal, paramTbl)
+function DarkmoonKnightHeavy6640_Act17(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = PushR_max
@@ -193,7 +193,7 @@ function DarkMoon_Juu6640_Act17(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function DarkMoon_Juu6640_Act20(ai, goal, paramTbl)
+function DarkmoonKnightHeavy6640_Act20(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     if 3 <= targetDist then
@@ -207,7 +207,7 @@ function DarkMoon_Juu6640_Act20(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function DarkMoon_Juu6640_ActAfter_AdjustSpace(ai, goal, paramTbl)
+function DarkmoonKnightHeavy6640_ActAfter_AdjustSpace(ai, goal, paramTbl)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     local MoveDist = 3
@@ -221,16 +221,16 @@ function DarkMoon_Juu6640_ActAfter_AdjustSpace(ai, goal, paramTbl)
     return 
 end
 
-function DarkMoon_Juu6640Battle_Update(ai, goal)
+function DarkmoonKnightHeavy6640Battle_Update(ai, goal)
     return GOAL_RESULT_Continue
 end
 
-function DarkMoon_Juu6640Battle_Terminate(ai, goal)
+function DarkmoonKnightHeavy6640Battle_Terminate(ai, goal)
     return 
 end
 
 NormalR_min = LargeR_max
-function DarkMoon_Juu6640Battle_Interupt(ai, goal)
+function DarkmoonKnightHeavy6640Battle_Interupt(ai, goal)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)

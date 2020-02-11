@@ -1,4 +1,4 @@
-REGISTER_GOAL(GOAL_CowardInGraveyard_Patch6320_Battle, "CowardInGraveyard_Patch6320Battle")
+REGISTER_GOAL(GOAL_Patches6320_Battle, "Patches6320Battle")
 local NormalR_min = 0
 local NormalR_max = 2.6
 local Guard_NormalR_min = 0
@@ -15,8 +15,8 @@ local Backstep_Atk_min = 1.8
 local Backstep_Atk_max = 3.2
 local Rolling_Atk_min = 4.4
 local Rolling_Atk_max = 5.4
-REGISTER_GOAL_NO_UPDATE(GOAL_CowardInGraveyard_Patch6320_Battle, 1)
-function CowardInGraveyard_Patch6320Battle_Activate(ai, goal)
+REGISTER_GOAL_NO_UPDATE(GOAL_Patches6320_Battle, 1)
+function Patches6320Battle_Activate(ai, goal)
     local actPerArr = {}
     local actFuncArr = {}
     local defFuncParamTbl = {}
@@ -72,20 +72,20 @@ function CowardInGraveyard_Patch6320Battle_Activate(ai, goal)
         actPerArr[6] = 10
         actPerArr[8] = 20
     end
-    actFuncArr[1] = REGIST_FUNC(ai, goal, CowardInGraveyard_Patch6320_Act01)
-    actFuncArr[2] = REGIST_FUNC(ai, goal, CowardInGraveyard_Patch6320_Act02)
-    actFuncArr[3] = REGIST_FUNC(ai, goal, CowardInGraveyard_Patch6320_Act03)
-    actFuncArr[4] = REGIST_FUNC(ai, goal, CowardInGraveyard_Patch6320_Act04)
-    actFuncArr[6] = REGIST_FUNC(ai, goal, CowardInGraveyard_Patch6320_Act06)
-    actFuncArr[8] = REGIST_FUNC(ai, goal, CowardInGraveyard_Patch6320_Act08)
-    actFuncArr[11] = REGIST_FUNC(ai, goal, CowardInGraveyard_Patch6320_Act11)
-    local atkAfterFunc = REGIST_FUNC(ai, goal, CowardInGraveyard_Patch6320_ActAfter_AdjustSpace, atkAfterOddsTbl)
+    actFuncArr[1] = REGIST_FUNC(ai, goal, Patches6320_Act01)
+    actFuncArr[2] = REGIST_FUNC(ai, goal, Patches6320_Act02)
+    actFuncArr[3] = REGIST_FUNC(ai, goal, Patches6320_Act03)
+    actFuncArr[4] = REGIST_FUNC(ai, goal, Patches6320_Act04)
+    actFuncArr[6] = REGIST_FUNC(ai, goal, Patches6320_Act06)
+    actFuncArr[8] = REGIST_FUNC(ai, goal, Patches6320_Act08)
+    actFuncArr[11] = REGIST_FUNC(ai, goal, Patches6320_Act11)
+    local atkAfterFunc = REGIST_FUNC(ai, goal, Patches6320_ActAfter_AdjustSpace, atkAfterOddsTbl)
     Common_Battle_Activate(ai, goal, actPerArr, actFuncArr, atkAfterFunc, defFuncParamTbl)
     return 
 end
 
 NormalR_min = NormalR_max
-function CowardInGraveyard_Patch6320_Act01(ai, goal, paramTbl)
+function Patches6320_Act01(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = NormalR_max
@@ -109,7 +109,7 @@ function CowardInGraveyard_Patch6320_Act01(ai, goal, paramTbl)
 end
 
 NormalR_min = Guard_NormalR_max
-function CowardInGraveyard_Patch6320_Act02(ai, goal, paramTbl)
+function Patches6320_Act02(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = Guard_NormalR_max
@@ -133,7 +133,7 @@ function CowardInGraveyard_Patch6320_Act02(ai, goal, paramTbl)
 end
 
 NormalR_min = LargeR_max
-function CowardInGraveyard_Patch6320_Act03(ai, goal, paramTbl)
+function Patches6320_Act03(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     goal:AddSubGoal(GOAL_COMMON_ApproachTarget, 5, TARGET_ENE_0, LargeR_max, TARGET_SELF, false, 4)
@@ -149,7 +149,7 @@ function CowardInGraveyard_Patch6320_Act03(ai, goal, paramTbl)
 end
 
 NormalR_min = LargeR_max
-function CowardInGraveyard_Patch6320_Act04(ai, goal, paramTbl)
+function Patches6320_Act04(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = LargeR_max
@@ -162,7 +162,7 @@ function CowardInGraveyard_Patch6320_Act04(ai, goal, paramTbl)
 end
 
 NormalR_min = Backstep_Atk_max
-function CowardInGraveyard_Patch6320_Act06(ai, goal, paramTbl)
+function Patches6320_Act06(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = Backstep_Atk_max
@@ -175,7 +175,7 @@ function CowardInGraveyard_Patch6320_Act06(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function CowardInGraveyard_Patch6320_Act08(ai, goal, paramTbl)
+function Patches6320_Act08(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     if 3 <= targetDist then
@@ -189,7 +189,7 @@ function CowardInGraveyard_Patch6320_Act08(ai, goal, paramTbl)
 end
 
 NormalR_min = Guard_NormalR_max
-function CowardInGraveyard_Patch6320_Act11(ai, goal, paramTbl)
+function Patches6320_Act11(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     goal:AddSubGoal(GOAL_COMMON_ApproachTarget, 5, TARGET_ENE_0, Guard_NormalR_max, TARGET_SELF, false, 4)
@@ -199,7 +199,7 @@ function CowardInGraveyard_Patch6320_Act11(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function CowardInGraveyard_Patch6320_ActAfter_AdjustSpace(ai, goal, paramTbl)
+function Patches6320_ActAfter_AdjustSpace(ai, goal, paramTbl)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     local MoveDist = 3
@@ -213,16 +213,16 @@ function CowardInGraveyard_Patch6320_ActAfter_AdjustSpace(ai, goal, paramTbl)
     return 
 end
 
-function CowardInGraveyard_Patch6320Battle_Update(ai, goal)
+function Patches6320Battle_Update(ai, goal)
     return GOAL_RESULT_Continue
 end
 
-function CowardInGraveyard_Patch6320Battle_Terminate(ai, goal)
+function Patches6320Battle_Terminate(ai, goal)
     return 
 end
 
 NormalR_min = LargeR_max
-function CowardInGraveyard_Patch6320Battle_Interupt(ai, goal)
+function Patches6320Battle_Interupt(ai, goal)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)

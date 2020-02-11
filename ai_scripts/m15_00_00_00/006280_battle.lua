@@ -1,4 +1,4 @@
-REGISTER_GOAL(GOAL_OnionKnight6280_Battle, "OnionKnight6280Battle")
+REGISTER_GOAL(GOAL_Siegmeyer6280_Battle, "Siegmeyer6280Battle")
 local NormalR_min = 0
 local NormalR_max = 2.5
 local LargeR_min = 0
@@ -15,8 +15,8 @@ local Backstep_Atk_min = 0
 local Backstep_Atk_max = 3.8
 local Rolling_Atk_min = 4
 local Rolling_Atk_max = 5.6
-REGISTER_GOAL_NO_UPDATE(GOAL_OnionKnight6280_Battle, 1)
-function OnionKnight6280Battle_Activate(ai, goal)
+REGISTER_GOAL_NO_UPDATE(GOAL_Siegmeyer6280_Battle, 1)
+function Siegmeyer6280Battle_Activate(ai, goal)
     local actPerArr = {}
     local actFuncArr = {}
     local defFuncParamTbl = {}
@@ -82,23 +82,23 @@ function OnionKnight6280Battle_Activate(ai, goal)
         actPerArr[6] = 15
         actPerArr[10] = 5
     end
-    actFuncArr[1] = REGIST_FUNC(ai, goal, OnionKnight6280_Act01)
-    actFuncArr[2] = REGIST_FUNC(ai, goal, OnionKnight6280_Act02)
-    actFuncArr[3] = REGIST_FUNC(ai, goal, OnionKnight6280_Act03)
-    actFuncArr[4] = REGIST_FUNC(ai, goal, OnionKnight6280_Act04)
-    actFuncArr[5] = REGIST_FUNC(ai, goal, OnionKnight6280_Act05)
-    actFuncArr[6] = REGIST_FUNC(ai, goal, OnionKnight6280_Act06)
-    actFuncArr[7] = REGIST_FUNC(ai, goal, OnionKnight6280_Act07)
-    actFuncArr[8] = REGIST_FUNC(ai, goal, OnionKnight6280_Act08)
-    actFuncArr[9] = REGIST_FUNC(ai, goal, OnionKnight6280_Act09)
-    actFuncArr[10] = REGIST_FUNC(ai, goal, OnionKnight6280_Act10)
-    local atkAfterFunc = REGIST_FUNC(ai, goal, OnionKnight6280_ActAfter_AdjustSpace, atkAfterOddsTbl)
+    actFuncArr[1] = REGIST_FUNC(ai, goal, Siegmeyer6280_Act01)
+    actFuncArr[2] = REGIST_FUNC(ai, goal, Siegmeyer6280_Act02)
+    actFuncArr[3] = REGIST_FUNC(ai, goal, Siegmeyer6280_Act03)
+    actFuncArr[4] = REGIST_FUNC(ai, goal, Siegmeyer6280_Act04)
+    actFuncArr[5] = REGIST_FUNC(ai, goal, Siegmeyer6280_Act05)
+    actFuncArr[6] = REGIST_FUNC(ai, goal, Siegmeyer6280_Act06)
+    actFuncArr[7] = REGIST_FUNC(ai, goal, Siegmeyer6280_Act07)
+    actFuncArr[8] = REGIST_FUNC(ai, goal, Siegmeyer6280_Act08)
+    actFuncArr[9] = REGIST_FUNC(ai, goal, Siegmeyer6280_Act09)
+    actFuncArr[10] = REGIST_FUNC(ai, goal, Siegmeyer6280_Act10)
+    local atkAfterFunc = REGIST_FUNC(ai, goal, Siegmeyer6280_ActAfter_AdjustSpace, atkAfterOddsTbl)
     Common_Battle_Activate(ai, goal, actPerArr, actFuncArr, atkAfterFunc, defFuncParamTbl)
     return 
 end
 
 NormalR_min = NormalR_max
-function OnionKnight6280_Act01(ai, goal, paramTbl)
+function Siegmeyer6280_Act01(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -120,7 +120,7 @@ function OnionKnight6280_Act01(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function OnionKnight6280_Act02(ai, goal, paramTbl)
+function Siegmeyer6280_Act02(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -148,7 +148,7 @@ function OnionKnight6280_Act02(ai, goal, paramTbl)
 end
 
 NormalR_min = LargeR_max
-function OnionKnight6280_Act03(ai, goal, paramTbl)
+function Siegmeyer6280_Act03(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -165,7 +165,7 @@ function OnionKnight6280_Act03(ai, goal, paramTbl)
 end
 
 NormalR_min = PushR_max
-function OnionKnight6280_Act04(ai, goal, paramTbl)
+function Siegmeyer6280_Act04(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = PushR_max
@@ -178,7 +178,7 @@ function OnionKnight6280_Act04(ai, goal, paramTbl)
 end
 
 NormalR_min = Tate_max
-function OnionKnight6280_Act05(ai, goal, paramTbl)
+function Siegmeyer6280_Act05(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -189,7 +189,7 @@ function OnionKnight6280_Act05(ai, goal, paramTbl)
 end
 
 NormalR_min = NormalR_max
-function OnionKnight6280_Act06(ai, goal, paramTbl)
+function Siegmeyer6280_Act06(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -207,7 +207,7 @@ function OnionKnight6280_Act06(ai, goal, paramTbl)
 end
 
 NormalR_min = Rolling_Atk_max
-function OnionKnight6280_Act07(ai, goal, paramTbl)
+function Siegmeyer6280_Act07(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -224,7 +224,7 @@ function OnionKnight6280_Act07(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function OnionKnight6280_Act08(ai, goal, paramTbl)
+function Siegmeyer6280_Act08(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     if 3 <= targetDist then
@@ -237,7 +237,7 @@ function OnionKnight6280_Act08(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function OnionKnight6280_Act09(ai, goal, paramTbl)
+function Siegmeyer6280_Act09(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     goal:AddSubGoal(GOAL_COMMON_SpinStep, 10, NPC_ATK_StepB, TARGET_ENE_0, 0, AI_DIR_TYPE_B, 2)
@@ -245,7 +245,7 @@ function OnionKnight6280_Act09(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function OnionKnight6280_Act10(ai, goal, paramTbl)
+function Siegmeyer6280_Act10(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     goal:AddSubGoal(GOAL_COMMON_ComboAttackTunableSpin, 10, NPC_ATK_SwitchWep, TARGET_ENE_0, DIST_Middle, 1.5, 90)
@@ -253,7 +253,7 @@ function OnionKnight6280_Act10(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function OnionKnight6280_ActAfter_AdjustSpace(ai, goal, paramTbl)
+function Siegmeyer6280_ActAfter_AdjustSpace(ai, goal, paramTbl)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     local MoveDist = 3
@@ -267,16 +267,16 @@ function OnionKnight6280_ActAfter_AdjustSpace(ai, goal, paramTbl)
     return 
 end
 
-function OnionKnight6280Battle_Update(ai, goal)
+function Siegmeyer6280Battle_Update(ai, goal)
     return GOAL_RESULT_Continue
 end
 
-function OnionKnight6280Battle_Terminate(ai, goal)
+function Siegmeyer6280Battle_Terminate(ai, goal)
     return 
 end
 
 NormalR_min = LargeR_max
-function OnionKnight6280Battle_Interupt(ai, goal)
+function Siegmeyer6280Battle_Interupt(ai, goal)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)

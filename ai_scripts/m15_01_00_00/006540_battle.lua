@@ -1,4 +1,4 @@
-REGISTER_GOAL(GOAL_SunKnight6540_Battle, "SunKnight6540Battle")
+REGISTER_GOAL(GOAL_SolaireSummon6540_Battle, "SolaireSummon6540Battle")
 local NormalR_min = 0
 local NormalR_max = 2
 local Guard_NormalR_min = 0
@@ -17,8 +17,8 @@ local Backstep_Atk_min = 0
 local Backstep_Atk_max = 2.8
 local Rolling_Atk_min = 4
 local Rolling_Atk_max = 5
-REGISTER_GOAL_NO_UPDATE(GOAL_SunKnight6540_Battle, 1)
-function SunKnight6540Battle_Activate(ai, goal)
+REGISTER_GOAL_NO_UPDATE(GOAL_SolaireSummon6540_Battle, 1)
+function SolaireSummon6540Battle_Activate(ai, goal)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     local targetDist = ai:GetDist(TARGET_ENE_0)
@@ -75,7 +75,7 @@ function SunKnight6540Battle_Activate(ai, goal)
             goal:AddSubGoal(GOAL_COMMON_ApproachTarget, 3, POINT_INITIAL, 1, TARGET_SELF, true, 4)
             goal:AddSubGoal(GOAL_COMMON_Wait, 2, TARGET_SELF, 0, 0, 0)
         else
-            SunKnight6540_Battle(ai, goal)
+            SolaireSummon6540_Battle(ai, goal)
         end
     elseif 20 <= playerDist or 10 <= targetDist or isFindTarget == false then
         local walk = true
@@ -84,12 +84,12 @@ function SunKnight6540Battle_Activate(ai, goal)
         end
         goal:AddSubGoal(GOAL_COMMON_ApproachTarget, 3, TARGET_LOCALPLAYER, 1.2, TARGET_SELF, walk, -1)
     else
-        SunKnight6540_Battle(ai, goal)
+        SolaireSummon6540_Battle(ai, goal)
     end
     return 
 end
 
-function SunKnight6540_Battle(ai, goal)
+function SolaireSummon6540_Battle(ai, goal)
     local actPerArr = {}
     local actFuncArr = {}
     local defFuncParamTbl = {}
@@ -156,21 +156,21 @@ function SunKnight6540_Battle(ai, goal)
         actPerArr[9] = 10
         actPerArr[10] = 5
     end
-    actFuncArr[1] = REGIST_FUNC(ai, goal, SunKnight6540_Act01)
-    actFuncArr[3] = REGIST_FUNC(ai, goal, SunKnight6540_Act03)
-    actFuncArr[4] = REGIST_FUNC(ai, goal, SunKnight6540_Act04)
-    actFuncArr[5] = REGIST_FUNC(ai, goal, SunKnight6540_Act05)
-    actFuncArr[6] = REGIST_FUNC(ai, goal, SunKnight6540_Act06)
-    actFuncArr[7] = REGIST_FUNC(ai, goal, SunKnight6540_Act07)
-    actFuncArr[9] = REGIST_FUNC(ai, goal, SunKnight6540_Act09)
-    actFuncArr[10] = REGIST_FUNC(ai, goal, SunKnight6540_Act10)
-    local atkAfterFunc = REGIST_FUNC(ai, goal, SunKnight6540_ActAfter_AdjustSpace, atkAfterOddsTbl)
+    actFuncArr[1] = REGIST_FUNC(ai, goal, SolaireSummon6540_Act01)
+    actFuncArr[3] = REGIST_FUNC(ai, goal, SolaireSummon6540_Act03)
+    actFuncArr[4] = REGIST_FUNC(ai, goal, SolaireSummon6540_Act04)
+    actFuncArr[5] = REGIST_FUNC(ai, goal, SolaireSummon6540_Act05)
+    actFuncArr[6] = REGIST_FUNC(ai, goal, SolaireSummon6540_Act06)
+    actFuncArr[7] = REGIST_FUNC(ai, goal, SolaireSummon6540_Act07)
+    actFuncArr[9] = REGIST_FUNC(ai, goal, SolaireSummon6540_Act09)
+    actFuncArr[10] = REGIST_FUNC(ai, goal, SolaireSummon6540_Act10)
+    local atkAfterFunc = REGIST_FUNC(ai, goal, SolaireSummon6540_ActAfter_AdjustSpace, atkAfterOddsTbl)
     Common_Battle_Activate(ai, goal, actPerArr, actFuncArr, atkAfterFunc, defFuncParamTbl)
     return 
 end
 
 NormalR_min = NormalR_max
-function SunKnight6540_Act01(ai, goal, paramTbl)
+function SolaireSummon6540_Act01(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -192,7 +192,7 @@ function SunKnight6540_Act01(ai, goal, paramTbl)
 end
 
 NormalR_min = LargeR_max
-function SunKnight6540_Act03(ai, goal, paramTbl)
+function SolaireSummon6540_Act03(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -208,7 +208,7 @@ function SunKnight6540_Act03(ai, goal, paramTbl)
 end
 
 NormalR_min = PushR_max
-function SunKnight6540_Act04(ai, goal, paramTbl)
+function SolaireSummon6540_Act04(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local approachDist = PushR_max
@@ -222,7 +222,7 @@ end
 
 NormalR_min = Magic_max
 NormalR_min = Magic_min
-function SunKnight6540_Act05(ai, goal, paramTbl)
+function SolaireSummon6540_Act05(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -243,7 +243,7 @@ function SunKnight6540_Act05(ai, goal, paramTbl)
 end
 
 NormalR_min = Backstep_Atk_max
-function SunKnight6540_Act06(ai, goal, paramTbl)
+function SolaireSummon6540_Act06(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -262,7 +262,7 @@ function SunKnight6540_Act06(ai, goal, paramTbl)
 end
 
 NormalR_min = Rolling_Atk_max
-function SunKnight6540_Act07(ai, goal, paramTbl)
+function SolaireSummon6540_Act07(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -279,7 +279,7 @@ function SunKnight6540_Act07(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function SunKnight6540_Act09(ai, goal, paramTbl)
+function SolaireSummon6540_Act09(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     goal:AddSubGoal(GOAL_COMMON_SpinStep, 10, NPC_ATK_StepB, TARGET_ENE_0, 0, AI_DIR_TYPE_B, 2)
@@ -287,7 +287,7 @@ function SunKnight6540_Act09(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function SunKnight6540_Act10(ai, goal, paramTbl)
+function SolaireSummon6540_Act10(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     goal:AddSubGoal(GOAL_COMMON_ComboAttackTunableSpin, 10, NPC_ATK_SwitchWep, TARGET_ENE_0, DIST_Middle, 1.5, 90)
@@ -295,7 +295,7 @@ function SunKnight6540_Act10(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function SunKnight6540_ActAfter_AdjustSpace(ai, goal, paramTbl)
+function SolaireSummon6540_ActAfter_AdjustSpace(ai, goal, paramTbl)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     local MoveDist = 3
@@ -316,16 +316,16 @@ function SunKnight6540_ActAfter_AdjustSpace(ai, goal, paramTbl)
     return 
 end
 
-function SunKnight6540Battle_Update(ai, goal)
+function SolaireSummon6540Battle_Update(ai, goal)
     return GOAL_RESULT_Continue
 end
 
-function SunKnight6540Battle_Terminate(ai, goal)
+function SolaireSummon6540Battle_Terminate(ai, goal)
     return 
 end
 
 NormalR_min = LargeR_max
-function SunKnight6540Battle_Interupt(ai, goal)
+function SolaireSummon6540Battle_Interupt(ai, goal)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)

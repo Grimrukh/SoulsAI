@@ -1,4 +1,4 @@
-REGISTER_GOAL(GOAL_Ninja6420_Battle, "Ninja6420Battle")
+REGISTER_GOAL(GOAL_ShivasBodyguard6420_Battle, "ShivasBodyguard6420Battle")
 local NormalR_min = 0
 local NormalR_max = 2
 local Guard_NormalR_min = 0
@@ -17,8 +17,8 @@ local Backstep_Atk_min = 0
 local Backstep_Atk_max = 0.5
 local Rolling_Atk_min = 4.1
 local Rolling_Atk_max = 5.1
-REGISTER_GOAL_NO_UPDATE(GOAL_Ninja6420_Battle, 1)
-function Ninja6420Battle_Activate(ai, goal)
+REGISTER_GOAL_NO_UPDATE(GOAL_ShivasBodyguard6420_Battle, 1)
+function ShivasBodyguard6420Battle_Activate(ai, goal)
     ai:StartDash()
     local actPerArr = {}
     local actFuncArr = {}
@@ -84,24 +84,24 @@ function Ninja6420Battle_Activate(ai, goal)
         actPerArr[8] = 40
         actPerArr[9] = 5
     end
-    actFuncArr[1] = REGIST_FUNC(ai, goal, Ninja6420_Act01)
-    actFuncArr[2] = REGIST_FUNC(ai, goal, Ninja6420_Act02)
-    actFuncArr[3] = REGIST_FUNC(ai, goal, Ninja6420_Act03)
-    actFuncArr[4] = REGIST_FUNC(ai, goal, Ninja6420_Act04)
-    actFuncArr[5] = REGIST_FUNC(ai, goal, Ninja6420_Act05)
-    actFuncArr[6] = REGIST_FUNC(ai, goal, Ninja6420_Act06)
-    actFuncArr[7] = REGIST_FUNC(ai, goal, Ninja6420_Act07)
-    actFuncArr[8] = REGIST_FUNC(ai, goal, Ninja6420_Act08)
-    actFuncArr[9] = REGIST_FUNC(ai, goal, Ninja6420_Act09)
-    actFuncArr[10] = REGIST_FUNC(ai, goal, Ninja6420_Act10)
-    actFuncArr[11] = REGIST_FUNC(ai, goal, Ninja6420_Act11)
-    local atkAfterFunc = REGIST_FUNC(ai, goal, Ninja6420_ActAfter_AdjustSpace, atkAfterOddsTbl)
+    actFuncArr[1] = REGIST_FUNC(ai, goal, ShivasBodyguard6420_Act01)
+    actFuncArr[2] = REGIST_FUNC(ai, goal, ShivasBodyguard6420_Act02)
+    actFuncArr[3] = REGIST_FUNC(ai, goal, ShivasBodyguard6420_Act03)
+    actFuncArr[4] = REGIST_FUNC(ai, goal, ShivasBodyguard6420_Act04)
+    actFuncArr[5] = REGIST_FUNC(ai, goal, ShivasBodyguard6420_Act05)
+    actFuncArr[6] = REGIST_FUNC(ai, goal, ShivasBodyguard6420_Act06)
+    actFuncArr[7] = REGIST_FUNC(ai, goal, ShivasBodyguard6420_Act07)
+    actFuncArr[8] = REGIST_FUNC(ai, goal, ShivasBodyguard6420_Act08)
+    actFuncArr[9] = REGIST_FUNC(ai, goal, ShivasBodyguard6420_Act09)
+    actFuncArr[10] = REGIST_FUNC(ai, goal, ShivasBodyguard6420_Act10)
+    actFuncArr[11] = REGIST_FUNC(ai, goal, ShivasBodyguard6420_Act11)
+    local atkAfterFunc = REGIST_FUNC(ai, goal, ShivasBodyguard6420_ActAfter_AdjustSpace, atkAfterOddsTbl)
     Common_Battle_Activate(ai, goal, actPerArr, actFuncArr, atkAfterFunc, defFuncParamTbl)
     return 
 end
 
 NormalR_min = NormalR_max
-function Ninja6420_Act01(ai, goal, paramTbl)
+function ShivasBodyguard6420_Act01(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -123,7 +123,7 @@ function Ninja6420_Act01(ai, goal, paramTbl)
 end
 
 NormalR_min = Guard_NormalR_max
-function Ninja6420_Act02(ai, goal, paramTbl)
+function ShivasBodyguard6420_Act02(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -145,7 +145,7 @@ function Ninja6420_Act02(ai, goal, paramTbl)
 end
 
 NormalR_min = LargeR_max
-function Ninja6420_Act03(ai, goal, paramTbl)
+function ShivasBodyguard6420_Act03(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -162,7 +162,7 @@ function Ninja6420_Act03(ai, goal, paramTbl)
 end
 
 NormalR_min = PushR_max
-function Ninja6420_Act04(ai, goal, paramTbl)
+function ShivasBodyguard6420_Act04(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     goal:AddSubGoal(GOAL_COMMON_ApproachTarget, 5, TARGET_ENE_0, PushR_max, TARGET_SELF, false, -1)
@@ -173,7 +173,7 @@ end
 
 NormalR_min = Magic_max
 NormalR_min = Magic_min
-function Ninja6420_Act05(ai, goal, paramTbl)
+function ShivasBodyguard6420_Act05(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local R_Wep = ai:GetWepCateRight(TARGET_SELF)
@@ -191,7 +191,7 @@ function Ninja6420_Act05(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Ninja6420_Act06(ai, goal, paramTbl)
+function ShivasBodyguard6420_Act06(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -202,7 +202,7 @@ function Ninja6420_Act06(ai, goal, paramTbl)
 end
 
 NormalR_min = Rolling_Atk_max
-function Ninja6420_Act07(ai, goal, paramTbl)
+function ShivasBodyguard6420_Act07(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -213,7 +213,7 @@ function Ninja6420_Act07(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Ninja6420_Act08(ai, goal, paramTbl)
+function ShivasBodyguard6420_Act08(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     CommonNPC_UseSecondaryLeftHand(ai, goal)
@@ -223,7 +223,7 @@ function Ninja6420_Act08(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Ninja6420_Act09(ai, goal, paramTbl)
+function ShivasBodyguard6420_Act09(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     goal:AddSubGoal(GOAL_COMMON_SpinStep, 10, NPC_ATK_StepB, TARGET_ENE_0, 0, AI_DIR_TYPE_B, 2)
@@ -231,7 +231,7 @@ function Ninja6420_Act09(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Ninja6420_Act10(ai, goal, paramTbl)
+function ShivasBodyguard6420_Act10(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     goal:AddSubGoal(GOAL_COMMON_ComboAttackTunableSpin, 10, NPC_ATK_SwitchWep, TARGET_ENE_0, DIST_Middle, 1.5, 90)
@@ -239,7 +239,7 @@ function Ninja6420_Act10(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Ninja6420_Act11(ai, goal, paramTbl)
+function ShivasBodyguard6420_Act11(ai, goal, paramTbl)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     goal:AddSubGoal(GOAL_COMMON_ApproachTarget, 2.5, TARGET_ENE_0, 2, TARGET_SELF, false, -1)
@@ -248,7 +248,7 @@ function Ninja6420_Act11(ai, goal, paramTbl)
     return GetWellSpace_Odds
 end
 
-function Ninja6420_Battle_Attack_After(ai, goal)
+function ShivasBodyguard6420_Battle_Attack_After(ai, goal)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
     local MoveDist = 3
@@ -269,15 +269,15 @@ function Ninja6420_Battle_Attack_After(ai, goal)
     return 
 end
 
-function Ninja6420Battle_Update(ai, goal)
+function ShivasBodyguard6420Battle_Update(ai, goal)
     return GOAL_RESULT_Continue
 end
 
-function Ninja6420Battle_Terminate(ai, goal)
+function ShivasBodyguard6420Battle_Terminate(ai, goal)
     return 
 end
 
-function Ninja6420Battle_Interupt(ai, goal)
+function ShivasBodyguard6420Battle_Interupt(ai, goal)
     local targetDist = ai:GetDist(TARGET_ENE_0)
     local fate = ai:GetRandam_Int(1, 100)
     local fate2 = ai:GetRandam_Int(1, 100)
